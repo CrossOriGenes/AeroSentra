@@ -21,8 +21,8 @@
 #define LED_POOR 27      // GPIO27 (D27)
 #define BUZZER_PIN 33    // GPIO33 (D33)
 #define DHTTYPE DHT11
-#define WIFI_SSID "Galaxy A35 5G 0F8A"
-#define WIFI_PASS "Crs#0803rIJu"
+#define WIFI_SSID "<your-wifi-SSID>"
+#define WIFI_PASS "<your-wifi-password>"
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
 
@@ -538,7 +538,7 @@ ApiResponse callServer() {
   reqDoc["lon"] = earthData.coords[1];
 
   HTTPClient http;
-  http.begin("http://10.128.214.229:8000/api/predict");
+  http.begin("http://<your-server-IP>/api/predict");
   http.addHeader("Content-Type", "application/json");
   http.setTimeout(15000);
   http.useHTTP10(true);
