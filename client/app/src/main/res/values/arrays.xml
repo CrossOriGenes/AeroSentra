@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="intro_titles">
+        <item>Welcome to AeroSentra</item>
+        <item>Smart &amp; Responsive Control</item>
+        <item>Built for Innovation</item>
+    </string-array>
+
+    <string-array name="intro_descriptions">
+        <item>The smart weather-predictor that allows to control, monitor, and interact with your autonomous rover through a powerful and intuitive mobile interface.</item>
+        <item>Experience real-time command execution, low-latency communication, and seamless rover interaction.</item>
+        <item>Designed with modular architecture, scalable server integration, and future-ready voice recognition expansion in mind.</item>
+    </string-array>
+</resources>
