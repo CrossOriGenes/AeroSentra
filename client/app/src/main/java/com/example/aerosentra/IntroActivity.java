@@ -1,11 +1,12 @@
 package com.example.aerosentra;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -55,7 +56,7 @@ public class IntroActivity extends AppCompatActivity {
         IntroAdapter adapter = new IntroAdapter(list);
         viewPager.setAdapter(adapter);
 
-        // 'Next >' button click event listener
+        // shift to next slide on 'Next >' button click
         btnNext.setOnClickListener(v -> {
             int current = viewPager.getCurrentItem();
             if (current < list.size() - 1)
@@ -63,6 +64,8 @@ public class IntroActivity extends AppCompatActivity {
             else
                 goToAuth();
         });
+        // go to auth page on 'Skip' button click
+        btnSkip.setOnClickListener(v -> goToAuth());
 
         viewPager.registerOnPageChangeCallback(
                 new ViewPager2.OnPageChangeCallback() {
@@ -88,6 +91,12 @@ public class IntroActivity extends AppCompatActivity {
     }
 
     private void goToAuth() {
-        Toast.makeText(this, "Auth page call", Toast.LENGTH_SHORT).show();
+        SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean("isFirstLaunch", false);
+        editor.apply();
+
+        startActivity(new Intent(this, MainActivity.class));
+        finish();
     }
 }

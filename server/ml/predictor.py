@@ -60,6 +60,6 @@ def predict(payload: dict):
     label = int(model.predict(x)[0])
 
     return {
-        "class": label,
+        "class_value": label,
         "status": label_map[label]
     }

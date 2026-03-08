@@ -21,10 +21,16 @@ def extract_current_weather_data(data):
         "state": location["region"],
         "country": location["country"],
         "temp": current["temp_c"],
+        "max_temp": data["forecast"]["forecastday"][0]["day"]["maxtemp_c"],
+        "min_temp": data["forecast"]["forecastday"][0]["day"]["mintemp_c"],
+        "feels_like": current["feelslike_c"],
         "humidity": current["humidity"],
         "pressure": current["pressure_mb"],
         "wind": current["wind_kph"],
+        "wind_dir": current["wind_dir"],
         "uv": current["uv"],
+        "precipitation": current["precip_mm"],
+        "condition": current.get("condition", {}),
     }
 
 # hourly forecast array for 24 hrs

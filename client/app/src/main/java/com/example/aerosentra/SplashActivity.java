@@ -28,17 +28,17 @@ public class SplashActivity extends AppCompatActivity {
 
         SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
         boolean isFirstLaunch = prefs.getBoolean("isFirstLaunch", true);
-        String token = prefs.getString("token", null);
+        String weatherData = prefs.getString("weather_data", null);
 
         // Splash delay (3 seconds)
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
             if (isFirstLaunch)
                 startActivity(new Intent(this, IntroActivity.class));
-//            else if (token == null)
-//                startActivity(new Intent(this, AuthActivity.class));
+            else if (weatherData == null)
+                startActivity(new Intent(this, RoverTriggerActivity.class));
             else
                 startActivity(new Intent(this, MainActivity.class));
             finish();
-        }, 4000);
+        }, 3000);
     }
 }

@@ -1,4 +1,5 @@
 <resources>
+    <!-- MISC -->
     <string name="app_name">AeroSentra</string>
     <string name="app_description">An IoT-driven Environmental Monitoring &amp; Weather-prediction system</string>
     <string name="loading_text_1">Loading…</string>
@@ -6,4 +7,27 @@
     <string name="start_text">Get Started</string>
     <string name="btn_skip">Skip</string>
     <string name="about">About Us</string>
+    <string name="testApp_toast_icon_txt">toast icon</string>
+
+    <!-- ACTIVITY -->
+    <string name="nav_item_1">Home</string>
+    <string name="nav_item_2">Map</string>
+    <string name="nav_item_3">Analytics</string>
+    <string name="nav_item_4">Settings</string>
+
+    <!-- WEATHER PANEL -->
+    <string name="weather_today_title">Weather Today</string>
+    <string name="weather_today_item_1">Maximum</string>
+    <string name="weather_today_item_2">Minimum</string>
+    <string name="weather_today_item_3">Feels Like</string>
+    <string name="weather_today_item_4">Precipitation</string>
+    <string name="weather_today_item_5">Wind</string>
+    <string name="weather_today_item_6">Pressure</string>
+    <string name="weather_today_item_7">Humidity</string>
+    <string name="weather_today_item_8">Wind Dir</string>
+    <string name="weather_today_item_9">AQI</string>
+
+    <!-- HARDWARE INTERACTIONS -->
+    <string name="trigger_req">Trigger Request</string>
+    <string name="trigger_req_btn">Trigger</string>
 </resources>

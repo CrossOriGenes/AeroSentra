@@ -20,7 +20,8 @@ async def predict_weather(rover: RoverDevicePayload):
         result = predict(ml_features)
         
         response = { 
-            "msg": "Prediction test successful.", 
+            "success": True,
+            "msg": "Region weather predicted successfully.", 
             "data": { 
                 "ml_data": result, 
                 "api_data": { 
@@ -32,10 +33,16 @@ async def predict_weather(rover: RoverDevicePayload):
                     "state": weather["state"], 
                     "country": weather["country"], 
                     "temp": rover.temperature, 
+                    "max_temp": weather["max_temp"], 
+                    "min_temp": weather["min_temp"],
+                    "feels_like": weather["feels_like"],
                     "humidity": rover.humidity, 
                     "uv_index": weather["uv"],
                     "pressure": weather["pressure"],
                     "wind": weather["wind"],
+                    "wind_dir": weather["wind_dir"],
+                    "precipitation": weather["precipitation"],
+                    "condition": weather.get("condition"),
                     "aqi": extract_aqi(raw), 
                     "hourly_forecast": extract_hourly_forecast(raw),
                     "daily_forecast": extract_daily_forecast(raw),

@@ -52,7 +52,7 @@
             android:id="@+id/nextIntroSlideBtn"
             android:layout_width="119dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="#52575B"
+            android:backgroundTint="#264D81"
             android:fontFamily="@font/jost_semibold"
             android:text="@string/btn_next"
             android:textColor="#FFFFFF"
