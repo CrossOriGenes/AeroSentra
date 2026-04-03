@@ -1,11 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <!-- GOOGLE MAP -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/mapFragment"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- SEARCH BAR -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Map fragment"
-        android:textSize="26sp" />
-</ScrollView>
+        android:layout_marginHorizontal="20dp"
+        android:gravity="center|center_vertical"
+        android:orientation="horizontal"
+        android:translationY="20dp">
+        <EditText
+            android:id="@+id/searchPlacesBox"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="12dp"
+            android:autofillHints="postalAddress"
+            android:background="@drawable/input_box_bg"
+            android:drawableStart="@android:drawable/ic_menu_search"
+            android:fontFamily="@font/jost_medium"
+            android:hint="@string/map_page_search_bar_hint"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="#ccc"
+            android:textSize="17sp" />
+        <FrameLayout
+            android:id="@+id/filterSearchesBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/semi_rounded_button_bg"
+            android:backgroundTint="@color/black"
+            android:padding="5dp">
+            <ImageView
+                android:layout_width="23dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/activity_title"
+                android:src="@drawable/ic_filter" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- BOTTOM SHEET DRAWER -->
+    <LinearLayout
+        android:id="@+id/bottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="570dp"
+        android:background="@drawable/weather_image_card_bg"
+        android:backgroundTint="#242323"
+        android:elevation="6dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:behavior_peekHeight="160dp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+        <com.google.android.material.bottomsheet.BottomSheetDragHandleView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-20dp"
+            android:fontFamily="@font/jost_extrabold"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:text="@string/activity_title"
+            android:textColor="#949191"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:id="@+id/openDetailsBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-4dp"
+            android:gravity="center_vertical|end"
+            android:orientation="horizontal"
+            android:visibility="gone">
+            <!-- DETAILS BUTTON -->
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="48dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/jost_bold"
+                android:gravity="center_vertical"
+                android:paddingStart="3dp"
+                android:paddingEnd="3dp"
+                android:text="@string/place_details_btn_txt"
+                android:textColor="#D5E4E4"
+                android:textColorLink="#BCD0D0"
+                android:textSize="16sp" />
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="10dp"
+                android:contentDescription="@string/activity_title"
+                android:rotation="-45"
+                android:src="@drawable/ic_arrow_forward"
+                app:tint="#0ff" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/placeListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <include layout="@layout/bottomsheet_mini_place_details" />
+
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

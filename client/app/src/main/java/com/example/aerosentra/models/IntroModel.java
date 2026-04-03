@@ -1,12 +1,12 @@
-package com.example.aerosentra.utils;
+package com.example.aerosentra.models;
 
 public class IntroModel {
-        int image;
-        String title, desc;
+    public int image;
+    public String title, desc;
 
-        public IntroModel(int image, String title, String desc) {
-            this.image = image;
-            this.title = title;
-            this.desc = desc;
-        }
+    public IntroModel(int image, String title, String desc) {
+        this.image = image;
+        this.title = title;
+        this.desc = desc;
     }
+}

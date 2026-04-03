@@ -1,7 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:orientation="vertical"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rover_connection_status_section_wrapper"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="15dp"
+    android:translationY="80dp"
+    android:background="@android:color/transparent"
+    app:layout_constraintTop_toBottomOf="@+id/roverModelWrapper"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingVertical="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/jost_bold"
+            android:text="@string/hotspot_status_label"
+            android:textColor="#B4C3C3"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/pair_stat_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/jost_semibold"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
+
+        <ImageView
+            android:id="@+id/pair_stat_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:contentDescription="@string/hotspot_status_icon" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/connected_device_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingTop="2dp"
+        android:paddingHorizontal="16dp">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/hotspot_status_icon"
+            app:srcCompat="@drawable/ic_satellite"
+            app:tint="#2E5754" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/rover_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="5dp"
+                android:fontFamily="@font/jost_extrabold"
+                android:textColor="#ccc"
+                android:textSize="23sp" />
+
+            <TextView
+                android:id="@+id/rover_ip_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/jost_semibolditalic"
+                android:gravity="center"
+                android:textColor="#2E5754"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/pair_button"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_outline_pill_bg"
+        android:fontFamily="@font/jost_bold"
+        android:text="@string/rover_pair_btn"
+        android:textColor="#EBFDFF"
+        android:textColorLink="#EBFDFF"
+        android:textSize="18sp"
+        android:textAllCaps="false"
+        android:layout_gravity="center"
+        android:layout_marginTop="22dp" />
 
 </LinearLayout>

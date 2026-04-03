@@ -16,7 +16,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.aerosentra.utils.IntroAdapter;
-import com.example.aerosentra.utils.IntroModel;
+import com.example.aerosentra.models.IntroModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,10 +62,10 @@ public class IntroActivity extends AppCompatActivity {
             if (current < list.size() - 1)
                 viewPager.setCurrentItem(current + 1, true);
             else
-                goToAuth();
+                goToHome();
         });
         // go to auth page on 'Skip' button click
-        btnSkip.setOnClickListener(v -> goToAuth());
+        btnSkip.setOnClickListener(v -> goToHome());
 
         viewPager.registerOnPageChangeCallback(
                 new ViewPager2.OnPageChangeCallback() {
@@ -90,13 +90,11 @@ public class IntroActivity extends AppCompatActivity {
         );
     }
 
-    private void goToAuth() {
+    private void goToHome() {
         SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putBoolean("isFirstLaunch", false);
-        editor.apply();
+        prefs.edit().putBoolean("hasSeenIntro", true).apply();
 
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, DashboardActivity.class));
         finish();
     }
 }

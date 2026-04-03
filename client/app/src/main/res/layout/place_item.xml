@@ -1,7 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:orientation="vertical"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginTop="8dp"
+    android:background="@drawable/card_gradient_bg"
+    android:backgroundTint="#2A3F50"
+    android:elevation="10dp"
+    android:orientation="horizontal"
+    android:paddingHorizontal="10dp"
+    android:paddingVertical="5dp">
 
+    <ImageView
+        android:id="@+id/placeIcon"
+        android:layout_width="55dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:contentDescription="@string/activity_title" />
+
+    <LinearLayout
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="0dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/placeName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/jost_medium"
+            android:textColor="@color/white"
+            android:textSize="19sp" />
+        <TextView
+            android:id="@+id/placeWeatherType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/jost_regular"
+            android:textColor="#aaa"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/placeTemp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:fontFamily="@font/jost_semibold"
+        android:gravity="center_vertical"
+        android:textColor="#0ff"
+        android:textSize="30sp" />
 </LinearLayout>

@@ -1,7 +1,215 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:orientation="vertical"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:columnCount="2"
+    android:orientation="horizontal"
+    android:translationY="70dp"
+    android:layout_marginHorizontal="10dp"
+    android:layout_gravity="center"
+    android:layout_marginBottom="100dp">
 
-</LinearLayout>
+    <GridLayout
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="vertical"
+        android:rowCount="2">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/card_redirect_to_alerts"
+            android:layout_width="match_parent"
+            android:layout_height="105dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/card_gradient_bg">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="bottom|end"
+                android:background="@drawable/disaster_alerts_card_bg"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/jost_bold"
+                    android:text="@string/redirect_card3_title"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:gravity="end" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/jost_semibold"
+                    android:text="@string/redirect_card3_subtext"
+                    android:textColor="#AB5269"
+                    android:textSize="13sp"
+                    android:gravity="end" />
+            </LinearLayout>
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:alpha="0.5"
+                android:contentDescription="@string/redirect_card3_title"
+                android:rotation="-45"
+                android:src="@drawable/ic_arrow_forward"
+                android:translationX="5dp"
+                android:translationY="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/white" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="0dp"
+            android:background="@drawable/card_gradient_bg"
+            android:backgroundTint="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="top|end"
+                android:orientation="vertical"
+                android:paddingHorizontal="10dp"
+                android:paddingTop="6dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/jost_bold"
+                    android:gravity="end"
+                    android:paddingTop="3dp"
+                    android:text="@string/redirect_card5_title"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/jost_semibold"
+                    android:gravity="end"
+                    android:lineSpacingExtra="-4dp"
+                    android:text="@string/redirect_card5_subtext"
+                    android:textColor="#666"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/seeNewsltrAndSubsDetailsBtn"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:backgroundTint="#232324"
+                android:fontFamily="@font/jost_semibold"
+                android:paddingLeft="12dp"
+                android:paddingTop="3dp"
+                android:paddingRight="12dp"
+                android:paddingBottom="3dp"
+                android:text="@string/redirect_card5_btnText"
+                android:textColor="@color/white"
+                android:textColorLink="@color/white"
+                android:textSize="13sp"
+                android:translationX="5dp"
+                android:translationY="-2dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:rippleColor="#3E3E40" />
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="6dp"
+                android:alpha="0.7"
+                android:contentDescription="@string/redirect_card5_title"
+                android:rotation="-45"
+                android:src="@drawable/ic_arrow_forward"
+                android:translationY="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="#0A4175" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </GridLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/card_redirect_to_preventions"
+        android:layout_width="135dp"
+        android:layout_height="247dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="0dp"
+        android:background="@drawable/card_gradient_bg_dark"
+        android:clipToOutline="true">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleX="2.2"
+            android:scaleY="2.5"
+            android:translationX="20dp"
+            android:translationY="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/lighthouse" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start|bottom"
+            android:orientation="vertical"
+            android:paddingHorizontal="10dp"
+            android:paddingBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/jost_bold"
+                android:gravity="start"
+                android:text="@string/redirect_card4_title"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/jost_semibold"
+                android:gravity="start"
+                android:lineSpacingExtra="-4dp"
+                android:text="@string/redirect_card4_subtext"
+                android:textColor="#78A0B8"
+                android:textSize="12.5sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:alpha="0.5"
+            android:contentDescription="@string/redirect_card4_title"
+            android:rotation="-45"
+            android:src="@drawable/ic_arrow_forward"
+            android:translationX="-15dp"
+            android:translationY="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</GridLayout>

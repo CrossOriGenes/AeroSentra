@@ -21,7 +21,7 @@ import com.example.aerosentra.R;
 import com.example.aerosentra.models.response.TriggerResponse;
 import com.google.gson.Gson;
 
-public class DashboardFragment extends Fragment {
+public class HomeFragment extends Fragment {
 
     TextView tvRegionName, tvTemp, tvMaxTemp, tvMinTemp, tvFeelsLike, tvPrecipitationChance, tvCurrWeatherType, tvWindSpeed, tvPressure, tvHumidity, tvWindDir, tvAqiStat;
     ImageView currentWeatherIcon, windDirIcon, aqiStatIcon;
@@ -33,11 +33,12 @@ public class DashboardFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
-        String json = getContext().getSharedPreferences("AppPrefs", Context.MODE_PRIVATE).getString("weather_data", null);
-        if (json != null) {
+        String json = getContext().getSharedPreferences("AppPrefs", Context.MODE_PRIVATE).getString("weather_data", "");
+        if (!json.isEmpty()) {
             Gson gson = new Gson();
             data = gson.fromJson(json, TriggerResponse.Data.class);
         }
+
 
         tvRegionName = view.findViewById(R.id.regionName);
         tvTemp = view.findViewById(R.id.temperature_value);

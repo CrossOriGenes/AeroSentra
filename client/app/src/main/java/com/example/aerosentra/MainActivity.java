@@ -14,7 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.aerosentra.utils.AnalyticsFragment;
-import com.example.aerosentra.utils.DashboardFragment;
+import com.example.aerosentra.utils.HomeFragment;
 import com.example.aerosentra.utils.MapFragment;
 import com.example.aerosentra.utils.SettingsFragment;
 
@@ -43,11 +43,11 @@ public class MainActivity extends AppCompatActivity {
         settingsIcon = findViewById(R.id.nav_settings);
 
         select(homeIcon);
-        loadFragment(new DashboardFragment());
+        loadFragment(new HomeFragment());
 
         homeIcon.setOnClickListener(v -> {
             select(homeIcon);
-            loadFragment(new DashboardFragment());
+            loadFragment(new HomeFragment());
         });
         mapIcon.setOnClickListener(v -> {
             select(mapIcon);

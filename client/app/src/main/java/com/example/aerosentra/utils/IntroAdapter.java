@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.aerosentra.R;
+import com.example.aerosentra.models.IntroModel;
 
 import java.util.List;
 

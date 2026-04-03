@@ -5,11 +5,11 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <!-- HEADER -->
-        <include layout="@layout/dashboard_header" />
+        <include layout="@layout/home_header" />
         <!-- CURRENT-WEATHER CARD -->
         <include layout="@layout/current_weather_card" />
         <!-- CURRENT-WEATHER CARD 2 -->

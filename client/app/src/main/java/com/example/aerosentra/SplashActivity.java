@@ -5,12 +5,15 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.aerosentra.ui.Toaster;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -25,20 +28,17 @@ public class SplashActivity extends AppCompatActivity {
             return insets;
         });
 
-
         SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
-        boolean isFirstLaunch = prefs.getBoolean("isFirstLaunch", true);
-        String weatherData = prefs.getString("weather_data", null);
+        boolean hasSeenIntro = prefs.getBoolean("hasSeenIntro", false);
 
         // Splash delay (3 seconds)
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
-            if (isFirstLaunch)
-                startActivity(new Intent(this, IntroActivity.class));
-            else if (weatherData == null)
-                startActivity(new Intent(this, RoverTriggerActivity.class));
+            if (!hasSeenIntro)
+                startActivity(new Intent(SplashActivity.this, IntroActivity.class));
             else
-                startActivity(new Intent(this, MainActivity.class));
+                startActivity(new Intent(SplashActivity.this, DashboardActivity.class));
             finish();
-        }, 3000);
+        },3000);
+
     }
 }

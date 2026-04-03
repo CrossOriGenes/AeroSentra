@@ -1,4 +1,4 @@
-package com.example.aerosentra.models;
+package com.example.aerosentra.models.response;
 
 import java.util.List;
 
@@ -63,6 +63,7 @@ public class TriggerResponse {
         private double wind;
         private String wind_dir;
         private double precipitation;
+        private boolean is_day;
         private Condition condition;
         private AQI aqi;
         private List<HourlyForecast> hourly_forecast;
@@ -111,6 +112,9 @@ public class TriggerResponse {
         public double getPrecipitation() { return precipitation; }
         public void setPrecipitation(double precipitation) { this.precipitation = precipitation; }
 
+        public boolean getIs_day() { return is_day; }
+        public void setIs_day(boolean is_day) { this.is_day = is_day; }
+
         public Condition getCondition() { return condition; }
         public void setCondition(Condition condition) { this.condition = condition; }
 
@@ -128,7 +132,6 @@ public class TriggerResponse {
     }
 
     // ---------------- COORDS ----------------
-
     public static class Coords {
 
         private double lat;
@@ -142,7 +145,6 @@ public class TriggerResponse {
     }
 
     // ---------------- CONDITION ----------------
-
     public static class Condition {
 
         private String text;
@@ -160,7 +162,6 @@ public class TriggerResponse {
     }
 
     // ---------------- AQI ----------------
-
     public static class AQI {
 
         private double pm2_5;
@@ -198,7 +199,6 @@ public class TriggerResponse {
     }
 
     // ---------------- HOURLY FORECAST ----------------
-
     public static class HourlyForecast {
 
         private String time;
@@ -224,7 +224,6 @@ public class TriggerResponse {
     }
 
     // ---------------- DAILY FORECAST ----------------
-
     public static class DailyForecast {
 
         private String date;
@@ -258,7 +257,6 @@ public class TriggerResponse {
     }
 
     // ---------------- ALERT ----------------
-
     public static class Alert {
         public String headline;
         public String severity;

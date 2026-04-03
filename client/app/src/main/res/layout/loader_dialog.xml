@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/card_gradient_bg"
+    android:background="@drawable/card_gradient_bg_dark"
     android:backgroundTint="#242828"
     android:gravity="center"
     android:orientation="vertical"
@@ -20,8 +20,11 @@
         android:id="@+id/loaderText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
         android:fontFamily="@font/jost_semibold"
+        android:gravity="center"
         android:textColor="#F4FFFF"
-        android:textSize="14sp" />
+        android:textSize="16sp" />
 </LinearLayout>

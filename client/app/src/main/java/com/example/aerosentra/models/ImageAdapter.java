@@ -14,13 +14,13 @@ import com.example.aerosentra.R;
 
 import java.util.List;
 
-public class PlaceImagesAdapter extends RecyclerView.Adapter<PlaceImagesAdapter.ImageViewHolder> {
+public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHolder> {
     Context context;
-    List<String> imageUrls;
+    List<String> images;
 
-    public PlaceImagesAdapter(Context context, List<String> imageUrls){
+    public ImageAdapter(Context context, List<String> images){
         this.context = context;
-        this.imageUrls = imageUrls;
+        this.images = images;
     }
 
     @NonNull
@@ -32,13 +32,13 @@ public class PlaceImagesAdapter extends RecyclerView.Adapter<PlaceImagesAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ImageViewHolder holder, int position) {
-        String imageUrl = imageUrls.get(position);
+        String imageUrl = images.get(position);
         Glide.with(context).load(imageUrl).into(holder.placeImage);
     }
 
     @Override
     public int getItemCount() {
-        return imageUrls.size();
+        return images.size();
     }
 
     static class ImageViewHolder extends RecyclerView.ViewHolder {

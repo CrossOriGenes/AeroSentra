@@ -8,19 +8,78 @@
     android:background="@drawable/app_bg_2"
     tools:context=".RoverTriggerActivity">
 
-    <TextView
-        android:id="@+id/rover_activity_header"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/jost_extrabold"
-        android:padding="20dp"
-        android:text="@string/trigger_req"
-        android:textColor="#ABABAB"
-        android:textSize="26sp"
+        android:background="@android:color/transparent"
         android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:translationY="6dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/rover_activity_header"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="0dp"
+            android:fontFamily="@font/jost_extrabold"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:text="@string/trigger_req"
+            android:textColor="#ABABAB"
+            android:textSize="26sp" />
+
+        <TextView
+            android:id="@+id/cancel_action_btn"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="@string/cancel_txt"
+            android:textColor="#10CCCC"
+            android:textColorLink="#10CCCC"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- ROVER MODEL -->
+    <FrameLayout
+        android:id="@+id/roverModelWrapper"
+        android:layout_width="match_parent"
+        android:layout_height="340dp"
+        android:translationY="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rover_activity_header">
+
+        <View
+            android:id="@+id/rover_bg_glow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/glow_bg" />
+
+        <ImageView
+            android:id="@+id/roverModel"
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="5dp"
+            android:background="@null"
+            android:contentDescription="@string/rover_model_name"
+            android:scaleType="fitCenter"
+            android:src="@drawable/rover" />
+    </FrameLayout>
+
+    <!-- ROVER CONNECTION STATUS -->
+    <include
+        layout="@layout/rover_status_section"
+        app:layout_constraintTop_toBottomOf="@+id/roverModelWrapper"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/trigger_call_button"
@@ -28,6 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="35dp"
         android:backgroundTint="#06394E"
+        android:enabled="false"
         android:fontFamily="@font/jost_semibold"
         android:text="@string/trigger_req_btn"
         android:textAllCaps="true"
@@ -35,6 +95,7 @@
         android:textColorLink="@color/white"
         android:textSize="20sp"
         android:translationY="-30dp"
+        android:alpha="0.5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

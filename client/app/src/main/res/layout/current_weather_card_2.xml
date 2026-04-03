@@ -9,7 +9,7 @@
     android:elevation="4dp"
     android:translationY="-120dp"
     android:layout_marginHorizontal="18dp"
-    android:background="@drawable/card_gradient_bg">
+    android:background="@drawable/card_gradient_bg_dark">
 
         <LinearLayout
             android:layout_width="match_parent"

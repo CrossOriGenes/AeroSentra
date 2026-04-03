@@ -8,12 +8,18 @@
     <string name="btn_skip">Skip</string>
     <string name="about">About Us</string>
     <string name="testApp_toast_icon_txt">toast icon</string>
+    <string name="confirm_cancel_hint">No</string>
+    <string name="confirm_accept_hint">Yes</string>
+    <string name="cancel_txt">Cancel</string>
+    <string name="list_empty_fallback_msg">No match found!</string>
+    <string name="list_empty_fallback_description">Please enter some other keyword that matches the list.</string>
 
     <!-- ACTIVITY -->
     <string name="nav_item_1">Home</string>
     <string name="nav_item_2">Map</string>
     <string name="nav_item_3">Analytics</string>
     <string name="nav_item_4">Settings</string>
+    <string name="settings_activity_refetchBtn">Re-fetch Weather</string>
 
     <!-- WEATHER PANEL -->
     <string name="weather_today_title">Weather Today</string>
@@ -30,4 +36,41 @@
     <!-- HARDWARE INTERACTIONS -->
     <string name="trigger_req">Trigger Request</string>
     <string name="trigger_req_btn">Trigger</string>
+    <string name="rover_model_name">AeroSentra Rover</string>
+    <string name="hotspot_status_label">Status :</string>
+    <string name="hotspot_status_icon">Status Icon</string>
+    <string name="rover_address_icon">Device IP</string>
+    <string name="rover_pair_btn">Pair</string>
+    <string name="default_status">Disconnected</string>
+
+    <!-- DASHBOARD -->
+    <string name="header_icon_1">Location</string>
+    <string name="header_icon_2">Notifications</string>
+    <string name="header_icon_3">Profile</string>
+    <string name="card1_title">Earth Rover</string>
+    <string name="card1_description">Get detailed weather report using the earth rover</string>
+    <string name="card1_btn">Locate Rover</string>
+    <string name="card2_title">Current</string>
+    <string name="card2_description">Current location weather</string>
+    <string name="card2_btn">Details</string>
+    <string name="card2_placeVal">📍</string>
+    <string name="card2_tempVal">🌡️</string>
+    <string name="card2_dnVal">Day/Night</string>
+    <string name="redirect_card3_title">Alerts</string>
+    <string name="redirect_card3_subtext">Fatal disaster alerts &amp; news</string>
+    <string name="redirect_card4_title">Preventions</string>
+    <string name="redirect_card4_subtext">Climatic precautions &amp; updates</string>
+    <string name="redirect_card5_title">Newsletter</string>
+    <string name="redirect_card5_subtext">Enroll yourself to newsletter channel or subscribe for premium…</string>
+    <string name="redirect_card5_btnText">See More</string>
+
+    <!-- MAP FRAGMENT -->
+    <string name="activity_title">Weather Nearby</string>
+    <string name="map_page_search_bar_hint">Search for a place…</string>
+    <string name="place_details_label_1">Humidity:</string>
+    <string name="place_details_label_2">UV Index:</string>
+    <string name="place_details_label_3">Pressure:</string>
+    <string name="place_details_label_4">Coordinates</string>
+    <string name="place_details_label_5">Place image</string>
+    <string name="place_details_btn_txt">Details</string>
 </resources>
