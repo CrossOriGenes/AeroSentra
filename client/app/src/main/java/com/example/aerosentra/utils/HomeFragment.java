@@ -18,7 +18,7 @@ import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.example.aerosentra.R;
-import com.example.aerosentra.models.TriggerResponse;
+import com.example.aerosentra.models.response.TriggerResponse;
 import com.google.gson.Gson;
 
 public class DashboardFragment extends Fragment {

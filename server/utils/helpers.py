@@ -1,8 +1,6 @@
 import os
 import pandas as pd
 from dotenv import load_dotenv
-from huggingface_hub import hf_hub_download
-from pydantic import BaseModel
 
 load_dotenv()
 
@@ -26,10 +24,3 @@ def categorize(score):
         return 1  # MODERATE
     else:
         return 0  # GOOD
-
-class RoverDevicePayload(BaseModel):
-    temperature: float
-    humidity: float
-    aqi: int
-    lat: float
-    lon: float

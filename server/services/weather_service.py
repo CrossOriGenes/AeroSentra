@@ -1,28 +1,41 @@
-import httpx, os
+import httpx, asyncio, os
 from datetime import datetime
+from services.image_service import get_place_images
+from dotenv import load_dotenv
+
+load_dotenv()
 
 API_KEY = os.getenv("WEATHERAPI_KEY")
+API_KEY_OPENWEATHERMAP = os.getenv("OPENWEATHERMAP_API_KEY")
 
 
-# main weather fetcher
+# main forecast weather fetcher
 async def fetch_weather(lat: float, lon: float):
     url = f"http://api.weatherapi.com/v1/forecast.json?key={API_KEY}&q={lat},{lon}&days=7&aqi=yes&alerts=yes"
     async with httpx.AsyncClient() as client:
         res = await client.get(url)
     return res.json()
 
+# main current weather fetcher
+async def fetcher_weather_v2(lat: float, lon: float):
+    url = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API_KEY_OPENWEATHERMAP}&units=metric"
+    async with httpx.AsyncClient() as client:
+        res = await client.get(url)
+    return res.json()
+
 # raw weather formatter
-def extract_current_weather_data(data):
-    current = data["current"]
-    location = data["location"]
+def extract_current_weather_data(data1, data2):
+    current = data1["current"]
+    location = data1["location"]
     
     return {
-        "city": location["name"],
+        "city": data2["name"],
         "state": location["region"],
         "country": location["country"],
         "temp": current["temp_c"],
-        "max_temp": data["forecast"]["forecastday"][0]["day"]["maxtemp_c"],
-        "min_temp": data["forecast"]["forecastday"][0]["day"]["mintemp_c"],
+        "is_day": True if current["is_day"] == 1 else False, 
+        "max_temp": data1["forecast"]["forecastday"][0]["day"]["maxtemp_c"],
+        "min_temp": data1["forecast"]["forecastday"][0]["day"]["mintemp_c"],
         "feels_like": current["feelslike_c"],
         "humidity": current["humidity"],
         "pressure": current["pressure_mb"],
@@ -95,15 +108,81 @@ def extract_alert(data):
     ]
 
 # ml feature builder
-def build_ml_feature(rover, weather):
+def build_ml_feature(device, weather):
     now = datetime.now()
     
     return {
-        "temperature": rover.temperature,
-        "humidity": rover.humidity,
+        "temperature": device.temperature,
+        "humidity": device.humidity,
         "pressure": weather["pressure"],
         "wind_speed": weather["wind"],
         "hour": now.hour,
         "day": now.day,
         "month": now.month
     }
+    
+def build_ml_features_v2(weather):
+    now = datetime.now()
+    
+    return {
+        "temperature": weather["temp"],
+        "humidity": weather["humidity"],
+        "pressure": weather["pressure"],
+        "wind_speed": weather["wind"],
+        "hour": now.hour,
+        "day": now.day,
+        "month": now.month
+    }
+    
+
+# get nearby places for map
+USERNAME = os.getenv("GEONAME_USER")
+
+async def fetch_nearby_places(lat: float, lon: float):
+    url = f"http://api.geonames.org/findNearbyPlaceNameJSON?lat={lat}&lng={lon}&radius=20&maxRows=5&username={USERNAME}"
+    async with httpx.AsyncClient() as client:
+        res = await client.get(url)
+    return res.json()
+
+async def fetch_nearby_places_current_weather(lat: float, lon: float):
+    url = f"http://api.weatherapi.com/v1/current.json?key={API_KEY}&q={lat},{lon}"
+    async with httpx.AsyncClient() as client:
+        res = await client.get(url)
+    return res.json()
+    
+    
+def extract_places(data):
+    places = data["geonames"]
+    
+    return [
+        {
+            "city": place["name"],
+            "lat": place["lat"],
+            "lng": place["lng"]
+        }
+        for place in places
+    ]
+    
+async def attach_weather(places):
+    
+    async def process_place(place):
+        data = await fetch_nearby_places_current_weather(place["lat"], place["lng"])
+        current = data["current"]
+        location = data["location"]
+        
+        return {
+            "city": place["city"],
+            "region": f"{location["region"]}, {location["country"]}",
+            "lat": place["lat"],
+            "lng": place["lng"],
+            "temperature": current["temp_c"],
+            "pressure": current["pressure_mb"],
+            "humidity": current["humidity"],
+            "uv": current["uv"],
+            "icon": current["condition"]["icon"],
+            "type": current["condition"]["text"],
+        }
+    
+    tasks = [process_place(place) for place in places]
+    
+    return await asyncio.gather(*tasks)
