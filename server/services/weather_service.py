@@ -27,6 +27,7 @@ async def fetcher_weather_v2(lat: float, lon: float):
 def extract_current_weather_data(data1, data2):
     current = data1["current"]
     location = data1["location"]
+    iconId = data2["weather"][0]["icon"]
     
     return {
         "city": data2["name"],
@@ -42,8 +43,13 @@ def extract_current_weather_data(data1, data2):
         "wind": current["wind_kph"],
         "wind_dir": current["wind_dir"],
         "uv": current["uv"],
+        "visibility": current["vis_km"],
         "precipitation": current["precip_mm"],
-        "condition": current.get("condition", {}),
+        "condition": {
+            "code": data2["weather"][0]["id"],
+            "text": data2["weather"][0]["description"],
+            "icon": f"//openweathermap.org/payload/api/media/file/{iconId}.png"    
+        },
     }
 
 # hourly forecast array for 24 hrs
@@ -52,9 +58,10 @@ def extract_hourly_forecast(data):
     
     return [
         {
-            "time": h["time"],
+            "time": h["time"].split(" ")[1],
             "temp": h["temp_c"],
             "icon": h["condition"]["icon"],
+            "type": h["condition"]["text"],
             "chance_of_rain": h["chance_of_rain"],
             "is_current": h["time"].endswith(str(datetime.now().hour).zfill(2) + ":00")
         }
@@ -72,6 +79,7 @@ def extract_daily_forecast(data):
             "min_temp": d["day"]["mintemp_c"],
             "avg_temp": d["day"]["avgtemp_c"],
             "icon": d["day"]["condition"]["icon"],
+            "type": d["day"]["condition"]["text"],
             "chance_of_rain": d["day"]["daily_chance_of_rain"],
             "uv": d["day"]["uv"]
         }

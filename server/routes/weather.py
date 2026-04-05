@@ -97,6 +97,7 @@ async def predict_weather_v2(device: UiDevicePayload):
                     "wind": weather["wind"],
                     "wind_dir": weather["wind_dir"],
                     "precipitation": weather["precipitation"],
+                    "visibility": weather["visibility"],
                     "condition": weather.get("condition"),
                     "is_day": weather["is_day"],
                     "aqi": extract_aqi(raw), 
