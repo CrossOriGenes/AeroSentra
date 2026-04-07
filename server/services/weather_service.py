@@ -63,6 +63,7 @@ def extract_hourly_forecast(data):
             "icon": h["condition"]["icon"],
             "type": h["condition"]["text"],
             "chance_of_rain": h["chance_of_rain"],
+            "uv": h["uv"],
             "is_current": h["time"].endswith(str(datetime.now().hour).zfill(2) + ":00")
         }
         for h in hours
@@ -153,7 +154,7 @@ async def fetch_nearby_places(lat: float, lon: float):
     return res.json()
 
 async def fetch_nearby_places_current_weather(lat: float, lon: float):
-    url = f"http://api.weatherapi.com/v1/current.json?key={API_KEY}&q={lat},{lon}"
+    url = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API_KEY_OPENWEATHERMAP}&units=metric"
     async with httpx.AsyncClient() as client:
         res = await client.get(url)
     return res.json()
@@ -166,7 +167,8 @@ def extract_places(data):
         {
             "city": place["name"],
             "lat": place["lat"],
-            "lng": place["lng"]
+            "lng": place["lng"],
+            "region": f"{place["adminName1"]}, {place["countryCode"]}",
         }
         for place in places
     ]
@@ -175,20 +177,20 @@ async def attach_weather(places):
     
     async def process_place(place):
         data = await fetch_nearby_places_current_weather(place["lat"], place["lng"])
-        current = data["current"]
-        location = data["location"]
+        icon = data["weather"][0]["icon"]
+        vis_km = round(int(data["visibility"])/1000, 1)
         
         return {
             "city": place["city"],
-            "region": f"{location["region"]}, {location["country"]}",
             "lat": place["lat"],
             "lng": place["lng"],
-            "temperature": current["temp_c"],
-            "pressure": current["pressure_mb"],
-            "humidity": current["humidity"],
-            "uv": current["uv"],
-            "icon": current["condition"]["icon"],
-            "type": current["condition"]["text"],
+            "region": place["region"],
+            "temperature": data["main"]["temp"],
+            "pressure": data["main"]["pressure"],
+            "humidity": data["main"]["humidity"],
+            "visibility": vis_km,
+            "icon": f"//openweathermap.org/payload/api/media/file/{icon}.png",
+            "type": data["weather"][0]["description"],
         }
     
     tasks = [process_place(place) for place in places]
