@@ -1,6 +1,6 @@
 import httpx, asyncio, os
 from datetime import datetime
-from services.image_service import get_place_images
+from utils.helpers import calc_pm25, calc_pm10, calc_co, calc_no2, calc_o3, calc_so2
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -93,16 +93,31 @@ def extract_daily_forecast(data):
 def extract_aqi(data):
     air = data["current"].get("air_quality", {})
     
-    return {
-        "pm2_5": air.get("pm2_5"),
-        "pm10": air.get("pm10"),
-        "co": air.get("co"),
-        "no2": air.get("no2"),
-        "o3": air.get("o3"),
-        "so2": air.get("so2"),
-        "magnitude_of_5": air.get("us-epa-index"),
-        "magnitude_of_10": air.get("gb-defra-index"), 
-    }
+    pm2_5 = air["pm2_5"]
+    pm10 = air["pm10"]
+    co = air["co"]
+    no2 = air["no2"]
+    o3 = air["o3"]
+    so2 = air["so2"]
+    
+    aqi_values = []
+    
+    if pm2_5 is not None:
+        aqi_values.append(calc_pm25(pm2_5))
+    if pm10 is not None:
+        aqi_values.append(calc_pm10(pm10))
+    if co is not None:
+        co = co / 1000
+        aqi_values.append(calc_co(co))
+    if no2 is not None:
+        aqi_values.append(calc_no2(no2))
+    if o3 is not None:
+        aqi_values.append(calc_o3(o3))
+    if so2 is not None:
+        aqi_values.append(calc_so2(so2))
+        
+    return min(max(aqi_values), 500) if aqi_values else 0
+    
     
 # weather alert extractor
 def extract_alert(data):

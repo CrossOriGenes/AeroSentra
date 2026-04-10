@@ -133,3 +133,15 @@ async def get_nearby_map_places(lat: float, lng: float):
         print(str(e))
         return { "msg": "Something went wrong!" }, 500
     
+
+# test
+@router.get("/test")
+async def get_weather(lat: float, lng: float):
+    try:
+        pass 
+    except Exception as e:
+        print(str(e))
+        return { 
+            "success":False, 
+            "msg": "Something went wrong!" 
+        }
