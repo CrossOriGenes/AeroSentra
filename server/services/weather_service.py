@@ -64,6 +64,7 @@ def extract_hourly_forecast(data):
             "type": h["condition"]["text"],
             "chance_of_rain": h["chance_of_rain"],
             "uv": h["uv"],
+            "humidity": h["humidity"],
             "is_current": h["time"].endswith(str(datetime.now().hour).zfill(2) + ":00")
         }
         for h in hours
@@ -79,6 +80,7 @@ def extract_daily_forecast(data):
             "max_temp": d["day"]["maxtemp_c"],
             "min_temp": d["day"]["mintemp_c"],
             "avg_temp": d["day"]["avgtemp_c"],
+            "humidity": d["day"]["avghumidity"],
             "icon": d["day"]["condition"]["icon"],
             "type": d["day"]["condition"]["text"],
             "chance_of_rain": d["day"]["daily_chance_of_rain"],

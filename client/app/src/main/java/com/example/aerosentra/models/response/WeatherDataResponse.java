@@ -17,8 +17,8 @@ public class TriggerResponse {
     public Data getData() { return data; }
     public void setData(Data data) { this.data = data; }
 
-    // ---------------- DATA ----------------
 
+    // ---------------- DATA ----------------
     public static class Data {
 
         private MLData ml_data;
@@ -63,6 +63,7 @@ public class TriggerResponse {
         private double wind;
         private String wind_dir;
         private double precipitation;
+        private double visibility;
         private boolean is_day;
         private Condition condition;
         private AQI aqi;
@@ -114,6 +115,9 @@ public class TriggerResponse {
 
         public boolean getIs_day() { return is_day; }
         public void setIs_day(boolean is_day) { this.is_day = is_day; }
+
+        public double getVisibility() { return visibility; }
+        public void setVisibility(double visibility) { this.visibility = visibility; }
 
         public Condition getCondition() { return condition; }
         public void setCondition(Condition condition) { this.condition = condition; }
@@ -204,8 +208,10 @@ public class TriggerResponse {
         private String time;
         private double temp;
         private String icon;
+        private String type;
         private int chance_of_rain;
         private boolean is_current;
+        private double uv;
 
         public String getTime() { return time; }
         public void setTime(String time) { this.time = time; }
@@ -216,11 +222,17 @@ public class TriggerResponse {
         public String getIcon() { return icon; }
         public void setIcon(String icon) { this.icon = icon; }
 
+        public String getType() { return type; }
+        public void setType(String type) { this.type = type; }
+
         public int getChance_of_rain() { return chance_of_rain; }
         public void setChance_of_rain(int chance_of_rain) { this.chance_of_rain = chance_of_rain; }
 
         public boolean isIs_current() { return is_current; }
         public void setIs_current(boolean is_current) { this.is_current = is_current; }
+
+        public double getUv() { return uv; }
+        public void setUv(double uv) { this.uv = uv; }
     }
 
     // ---------------- DAILY FORECAST ----------------
@@ -231,6 +243,7 @@ public class TriggerResponse {
         private double min_temp;
         private double avg_temp;
         private String icon;
+        private String type;
         private double chance_of_rain;
         private double uv;
 
@@ -248,6 +261,9 @@ public class TriggerResponse {
 
         public String getIcon() { return icon; }
         public void setIcon(String icon) { this.icon = icon; }
+
+        public String getType() { return type; }
+        public void setType(String type) { this.type = type; }
 
         public double getChance_of_rain() { return chance_of_rain; }
         public void setChance_of_rain(double chance_of_rain) { this.chance_of_rain = chance_of_rain; }
