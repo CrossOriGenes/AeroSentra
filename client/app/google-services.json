@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "911850533131",
+    "project_id": "aerosentra-df9d9",
+    "storage_bucket": "aerosentra-df9d9.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:911850533131:android:3cd1f1b86269c46290f20e",
+        "android_client_info": {
+          "package_name": "com.example.aerosentra"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPum5aDtZPo84YDQ4Uqh7guidBQB5yMZ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

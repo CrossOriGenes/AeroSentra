@@ -2,7 +2,7 @@ from pydantic import BaseModel
 
 
 
-# rover response model
+# rover request payload model
 class RoverDevicePayload(BaseModel):
     temperature: float
     humidity: float
@@ -11,8 +11,15 @@ class RoverDevicePayload(BaseModel):
     lon: float
     
     
-# mobile response model
+# mobile request payload model
 class UiDevicePayload(BaseModel):
     lat: float
     lon: float
     
+
+# Push message request payload
+class AlertPushPayload(BaseModel):
+    data: dict
+    fcmToken: str
+    deviceId: str
+    userId: str
