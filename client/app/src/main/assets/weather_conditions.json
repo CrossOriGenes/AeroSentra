@@ -1,0 +1,90 @@
+[
+  {
+    "type": "thunderstorm",
+    "group": "2xx",
+    "codes": [200,201,202,210,211,212,221,230,231,232],
+    "image_day": "//res.cloudinary.com/dtfoedy3u/image/upload/v1777042324/thunderstorm_day_y60shx.png",
+    "image_night": "//res.cloudinary.com/dtfoedy3u/image/upload/v1777042325/thunderstorm_night_gmhcnz.png",
+    "description": "Thunderstorm conditions"
+  },
+  {
+    "type": "drizzle",
+    "group": "3xx",
+    "codes": [300,301,302,310,311,312,313,314,321],
+    "image_day": "//res.cloudinary.com/dtfoedy3u/image/upload/v1777042323/drizzle_day_hmooql.png",
+    "image_night": "//res.cloudinary.com/dtfoedy3u/image/upload/v1777042323/drizzle_night_y5ul9s.png",
+    "description": "Light rain / drizzle conditions"
+  },
+  {
+    "type": "rain",
+    "group": "5xx",
+    "codes": [500,501,502,503,504,511,520,521,522,531],
+    "image_day": "//res.cloudinary.com/dtfoedy3u/image/upload/v1777042324/rain_day_jmyss6.png",
+    "image_night": "//res.cloudinary.com/dtfoedy3u/image/upload/v1777042324/rain_night_s3c1ge.png",
+    "description": "Moderate to heavy rain"
+  },
+  {
+    "type": "snow",
+    "group": "6xx",
+    "codes": [600,601,602,611,612,613,615,616,620,621,622],
+    "image_day": "//res.cloudinary.com/dtfoedy3u/image/upload/v1777042324/snowy_day_r79kfi.png",
+    "image_night": "//res.cloudinary.com/dtfoedy3u/image/upload/v1777042324/snowy_night_ibg6vv.png",
+    "description": "Snow / sleet conditions"
+  },
+  {
+    "type": "atmosphere_mist",
+    "group": "7xx",
+    "codes": [701,721,741],
+    "image_day": "//res.cloudinary.com/dtfoedy3u/image/upload/v1777042323/mist_day_xeb6xj.png",
+    "image_night": "//res.cloudinary.com/dtfoedy3u/image/upload/v1777042323/mist_night_uz3o6x.png",
+    "description": "Mist / fog / haze"
+  },
+  {
+    "type": "atmosphere_dust",
+    "group": "7xx",
+    "codes": [731,751,761],
+    "image_day": "//res.cloudinary.com/dtfoedy3u/image/upload/v1777042323/dusty_day_j0l1sw.png",
+    "image_night": "//res.cloudinary.com/dtfoedy3u/image/upload/v1777042323/dusty_night_n57jm0.png",
+    "description": "Dust / sand"
+  },
+  {
+    "type": "extreme",
+    "group": "7xx",
+    "codes": [762,771,781],
+    "image_day": "//res.cloudinary.com/dtfoedy3u/image/upload/v1777042323/extreme_squalls_ubaw3c.png",
+    "image_night": "//res.cloudinary.com/dtfoedy3u/image/upload/v1777042323/extreme_squalls_ubaw3c.png",
+    "description": "Extreme conditions like tornado, squalls"
+  },
+  {
+    "type": "clear",
+    "group": "800",
+    "codes": [800],
+    "image_day": "//res.cloudinary.com/dtfoedy3u/image/upload/v1777042321/clear_day_lyd4sn.png",
+    "image_night": "//res.cloudinary.com/dtfoedy3u/image/upload/v1777042321/clear_night_xczrkn.png",
+    "description": "Clear sky"
+  },
+  {
+    "type": "clouds_light",
+    "group": "80x",
+    "codes": [801],
+    "image_day": "//res.cloudinary.com/dtfoedy3u/image/upload/v1777042321/clouds_light_day_u6chyd.png",
+    "image_night": "//res.cloudinary.com/dtfoedy3u/image/upload/v1777042322/clouds_light_night_vxfwg2.png",
+    "description": "Few clouds"
+  },
+  {
+    "type": "clouds_medium",
+    "group": "80x",
+    "codes": [802,803],
+    "image_day": "//res.cloudinary.com/dtfoedy3u/image/upload/v1777042322/clouds_medium_day_oblbah.png",
+    "image_night": "//res.cloudinary.com/dtfoedy3u/image/upload/v1777042322/clouds_medium_night_ocf4cr.png",
+    "description": "Scattered / broken clouds"
+  },
+  {
+    "type": "clouds_heavy",
+    "group": "80x",
+    "codes": [804],
+    "image_day": "//res.cloudinary.com/dtfoedy3u/image/upload/v1777042321/clouds_overcast_day_uv9chv.png",
+    "image_night": "//res.cloudinary.com/dtfoedy3u/image/upload/v1777042323/clouds_overcast_night_ixfrre.png",
+    "description": "Overcast clouds"
+  }
+]

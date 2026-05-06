@@ -23,3 +23,13 @@ class AlertPushPayload(BaseModel):
     fcmToken: str
     deviceId: str
     userId: str
+    
+    
+# User model
+class UserPayload(BaseModel):
+    fcmToken: str
+    userId: str
+    deviceId: str
+    username: str
+    email: str
+    photoUrl: str | None 

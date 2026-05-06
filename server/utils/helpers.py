@@ -261,10 +261,10 @@ async def generate_weather_alert_details(data: dict):
             → short paragraph explaining situation
 
             3. precautions:
-            → 3-5 actionable tips
+            → Maximum of 3 actionable tips
 
             4. highlights:
-            → key points like:
+            → key points (maximum of 4) like:
                 - "UV is very high"
                 - "AQI unhealthy"
 
