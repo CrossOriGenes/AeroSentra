@@ -50,7 +50,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
                         android:fontFamily="@font/jost_semibold"
@@ -60,11 +60,10 @@
                         android:textSize="12sp" />
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:orientation="horizontal">
-
                         <TextView
                             android:id="@+id/wind_direction"
                             android:layout_width="wrap_content"
@@ -74,7 +73,6 @@
                             android:fontFamily="@font/jost_bold"
                             android:textColor="@color/white"
                             android:textSize="22sp" />
-
                         <ImageView
                             android:id="@+id/wind_direction_icon"
                             android:layout_width="22dp"
@@ -109,8 +107,8 @@
                     android:layout_height="45dp"
                     android:layout_marginStart="-8dp"
                     android:layout_marginEnd="12dp"
-                    android:contentDescription="@string/weather_today_item_8"
-                    android:src="@drawable/ic_eco"
+                    android:contentDescription="@string/weather_today_item_9"
+                    android:src="@drawable/ic_eye"
                     app:tint="#92B6B6" />
 
                 <LinearLayout
@@ -126,30 +124,15 @@
                         android:text="@string/weather_today_item_9"
                         android:textAllCaps="true"
                         android:textColor="#92B6B6"
-                        android:textSize="13sp" />
+                        android:textSize="12sp" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:id="@+id/visibility_val"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/aqi_val"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="0dp"
-                            android:layout_marginEnd="6dp"
-                            android:fontFamily="@font/jost_bold"
-                            android:textColor="@color/white" />
-
-                        <ImageView
-                            android:id="@+id/aqi_icon"
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            android:contentDescription="@string/weather_today_item_9"
-                            android:src="@drawable/rounded_pill" />
-                    </LinearLayout>
+                        android:fontFamily="@font/jost_bold"
+                        android:textColor="@color/white"
+                        android:textSize="23.4sp" />
                 </LinearLayout>
             </LinearLayout>
 

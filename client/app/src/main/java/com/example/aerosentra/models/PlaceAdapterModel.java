@@ -11,12 +11,12 @@ public class PlaceAdapterModel {
     double lat;
     double lng;
     double temperature;
-    double uv;
-    double humidity;
+    double visibility;
+    int humidity;
     double pressure;
     List<String> images;
 
-    public PlaceAdapterModel(String icon, String type, String city, String region, double lat, double lng, double temperature, double uv, double humidity, double pressure, List<String> images) {
+    public PlaceAdapterModel(String icon, String type, String city, String region, double lat, double lng, double temperature, double visibility, int humidity, double pressure, List<String> images) {
         this.icon = icon;
         this.type = type;
         this.city = city;
@@ -24,7 +24,7 @@ public class PlaceAdapterModel {
         this.lat = lat;
         this.lng = lng;
         this.temperature = temperature;
-        this.uv = uv;
+        this.visibility = visibility;
         this.humidity = humidity;
         this.pressure = pressure;
         this.images = images;
@@ -37,7 +37,7 @@ public class PlaceAdapterModel {
     public double getLat() { return lat; }
     public double getLng() { return lng; }
     public double getTemperature() { return temperature; }
-    public double getUv() { return uv; }
+    public double getVisibility() { return visibility; }
     public double getHumidity() { return humidity; }
     public double getPressure() { return pressure; }
     public List<String> getImages() { return images; }
@@ -49,8 +49,8 @@ public class PlaceAdapterModel {
     public void setLat(double lat) { this.lat = lat; }
     public void setLng(double lng) { this.lng = lng; }
     public void setTemperature(double temperature) { this.temperature = temperature; }
-    public void setUv(double uv) { this.uv = uv; }
-    public void setHumidity(double humidity) { this.humidity = humidity; }
+    public void setVisibility(double visibility) { this.visibility = visibility; }
+    public void setHumidity(int humidity) { this.humidity = humidity; }
     public void setPressure(double pressure) { this.pressure = pressure; }
     public void setImages(List<String> images) { this.images = images; }
 

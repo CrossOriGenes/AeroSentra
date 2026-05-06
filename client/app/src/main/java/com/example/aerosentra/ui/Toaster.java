@@ -33,6 +33,8 @@ public class Toaster {
         ImageView iconView = view.findViewById(R.id.toastIcon);
         TextView iconText = view.findViewById(R.id.toastText);
 
+        iconText.setTextSize(15);
+
         iconView.setImageResource(icon);
         iconText.setText(message);
 

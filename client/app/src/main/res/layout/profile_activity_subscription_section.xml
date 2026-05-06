@@ -1,7 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:orientation="vertical"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/jost_bold"
+        android:letterSpacing="0.22"
+        android:text="@string/subscriptions_section"
+        android:textAllCaps="true"
+        android:textColor="#AAAFAF"
+        android:textSize="21sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/semi_rounded_button_bg"
+        android:backgroundTint="#CCC"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/jost_extrabold"
+                android:scaleY="1.5"
+                android:text="@string/subscriptions_card_label"
+                android:textColor="#949494"
+                android:textScaleX="2.2"
+                android:textSize="50sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_goToSubscription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_weight="1"
+                android:background="@drawable/semi_rounded_button_bg"
+                android:fontFamily="@font/jost_semibold"
+                android:text="@string/subscription_plan_btn"
+                android:textColor="@color/white"
+                android:textColorLink="@color/white"
+                android:textSize="17sp"
+                app:backgroundTint="@color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="6dp"
+            android:paddingTop="6dp"
+            android:paddingEnd="6dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/jost_medium"
+                android:text="@string/subscriptions_plan_label"
+                android:textColor="#444"
+                android:textSize="17sp" />
+            <TextView
+                android:id="@+id/subscription_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="0dp"
+                android:background="@drawable/semi_rounded_button_bg_2"
+                android:fontFamily="@font/jost_medium"
+                android:paddingStart="9dp"
+                android:paddingTop="3dp"
+                android:paddingEnd="9dp"
+                android:paddingBottom="3dp"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

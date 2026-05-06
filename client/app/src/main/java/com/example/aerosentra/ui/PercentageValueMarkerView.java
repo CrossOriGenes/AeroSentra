@@ -9,11 +9,11 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.utils.MPPointF;
 
-public class RainfallMarkerView extends MarkerView {
+public class PercentageValueMarkerView extends MarkerView {
 
     TextView tvContent;
 
-    public RainfallMarkerView(Context context, int layoutResource) {
+    public PercentageValueMarkerView(Context context, int layoutResource) {
         super(context, layoutResource);
         tvContent = findViewById(R.id.markerText);
     }
@@ -21,8 +21,8 @@ public class RainfallMarkerView extends MarkerView {
     @Override
     public void refreshContent(Entry e, Highlight highlight) {
         if (e == null) return;
-        String rainfall = Math.round(e.getY()) + "%";
-        tvContent.setText(rainfall);
+        String val = Math.round(e.getY()) + "%";
+        tvContent.setText(val);
         super.refreshContent(e, highlight);
     }
 

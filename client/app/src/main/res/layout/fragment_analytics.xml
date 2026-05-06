@@ -3,9 +3,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Analytics Fragment"
-        android:textSize="26sp" />
+        android:layout_marginHorizontal="10dp"
+        android:orientation="vertical"
+        android:paddingTop="10dp">
+
+        <!-- DAILY FORECAST -->
+        <include layout="@layout/daily_forecast_list_section" />
+        <!-- HOURLY FORECAST -->
+        <include layout="@layout/hourly_forecast_list_section" />
+        <!-- TEMPERATURE ANALYTICS CHART -->
+        <include layout="@layout/temperature_analytic_chart" />
+        <!-- HUMIDITY ANALYTICS CHART -->
+        <include layout="@layout/humidity_analytic_chart" />
+        <!-- RAINFALL ANALYTICS CHART -->
+        <include layout="@layout/rainfall_analytic_chart" />
+        <!-- AQI ANALYTICS SECTION -->
+        <include layout="@layout/aqi_analytic_section" />
+
+    </LinearLayout>
 </ScrollView>

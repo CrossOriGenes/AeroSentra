@@ -1,7 +1,7 @@
 package com.example.aerosentra.api;
 
 import com.example.aerosentra.models.RoverStatus;
-import com.example.aerosentra.models.response.TriggerResponse;
+import com.example.aerosentra.models.response.WeatherDataResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -11,5 +11,5 @@ public interface RoverAPIService {
     Call<RoverStatus> checkStatus();
 
     @GET("trigger")
-    Call<TriggerResponse> triggerRover();
+    Call<WeatherDataResponse> triggerRover();
 }

@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:orientation="vertical"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/alert_bg"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:paddingHorizontal="15dp"
+    android:paddingVertical="10dp"
+    android:layout_marginTop="4dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:fontFamily="@font/jost_extrabold"
+        android:gravity="start"
+        android:text="@string/alert_title"
+        android:textColor="#FFFFCB"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/alertMsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/jost_medium"
+        android:gravity="start"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:lineSpacingExtra="-5dp" />
 
 </LinearLayout>

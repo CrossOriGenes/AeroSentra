@@ -40,7 +40,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
@@ -63,22 +63,26 @@
         </LinearLayout>
 
         <View
-            android:layout_width="2dp"
+            android:layout_width="1.5dp"
             android:layout_height="match_parent"
-            android:background="#ccc" />
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="12dp"
+            android:background="#555" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="0.2"
             android:gravity="center|center_vertical"
             android:orientation="vertical">
+
             <ImageView
                 android:id="@+id/placeWeatherIcon"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginBottom="5dp"
                 android:contentDescription="@string/weather_today_title" />
+
             <TextView
                 android:id="@+id/placeTemp"
                 android:layout_width="wrap_content"
@@ -86,13 +90,16 @@
                 android:fontFamily="@font/jost_bold"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
+
             <TextView
                 android:id="@+id/placeWeaType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/jost_medium"
+                android:gravity="center_horizontal"
+                android:lineSpacingExtra="-4dp"
                 android:textColor="#777"
-                android:textSize="16sp" />
+                android:textSize="14.5sp" />
         </LinearLayout>
 
     </LinearLayout>
@@ -155,7 +162,7 @@
                 android:textSize="17sp" />
 
             <TextView
-                android:id="@+id/placeUV"
+                android:id="@+id/placeVisibility"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/jost_regular"

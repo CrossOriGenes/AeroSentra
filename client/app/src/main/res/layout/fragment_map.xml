@@ -82,39 +82,6 @@
             android:textColor="#949191"
             android:textSize="20sp" />
 
-        <LinearLayout
-            android:id="@+id/openDetailsBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-4dp"
-            android:gravity="center_vertical|end"
-            android:orientation="horizontal"
-            android:visibility="gone">
-            <!-- DETAILS BUTTON -->
-            <TextView
-                android:layout_width="60dp"
-                android:layout_height="48dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:fontFamily="@font/jost_bold"
-                android:gravity="center_vertical"
-                android:paddingStart="3dp"
-                android:paddingEnd="3dp"
-                android:text="@string/place_details_btn_txt"
-                android:textColor="#D5E4E4"
-                android:textColorLink="#BCD0D0"
-                android:textSize="16sp" />
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="0dp"
-                android:layout_marginEnd="10dp"
-                android:contentDescription="@string/activity_title"
-                android:rotation="-45"
-                android:src="@drawable/ic_arrow_forward"
-                app:tint="#0ff" />
-        </LinearLayout>
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/placeListView"
             android:layout_width="match_parent"

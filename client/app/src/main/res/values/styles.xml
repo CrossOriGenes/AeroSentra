@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="CircleImage">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
+
+    <style name="ShapeAppearancePill">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="ToggleButton"
+        parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">@font/jost_semibold</item>
+        <item name="android:textSize">13sp</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="backgroundTint">@color/toggle_bg_color</item>
+        <item name="strokeWidth">1.5dp</item>
+        <item name="strokeColor">@android:color/black</item>
+        <item name="android:textColor">@color/toggle_text_color</item>
+        <item name="android:paddingStart">3dp</item>
+        <item name="android:paddingEnd">3dp</item>
+        <item name="android:paddingTop">1.5dp</item>
+        <item name="android:paddingBottom">1.5dp</item>
+    </style>
+
 </resources>

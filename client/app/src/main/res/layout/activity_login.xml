@@ -1,10 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F0F9FF"
+    android:gravity="center"
+    android:padding="10dp"
     tools:context=".LoginActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="164dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:contentDescription="@string/signIn_activity_title"
+        app:srcCompat="@drawable/app_logo_text" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="62dp"
+        android:fontFamily="@font/jost_extrabold"
+        android:gravity="center"
+        android:text="@string/signIn_activity_title"
+        android:textColor="#4D4646"
+        android:textSize="32sp" />
+
+    <EditText
+        android:id="@+id/user_email_input"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="15dp"
+        android:autofillHints="emailAddress"
+        android:background="@drawable/input_box_bg"
+        android:fontFamily="@font/jost_medium"
+        android:hint="@string/signIn_hint_1"
+        android:inputType="textEmailAddress"
+        android:padding="12dp"
+        android:textColor="@color/black"
+        android:textColorHint="#999"
+        android:textSize="19sp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="15dp">
+        <EditText
+            android:id="@+id/user_password_input"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:autofillHints="password"
+            android:background="@drawable/input_box_bg"
+            android:fontFamily="@font/jost_medium"
+            android:hint="@string/signIn_hint_2"
+            android:inputType="textPassword"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="#999"
+            android:textSize="19sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/email_input"
+            tools:ignore="NotSibling" />
+        <ImageButton
+            android:id="@+id/toggle_pass_visibility_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@null"
+            android:contentDescription="@string/signIn_hint_2"
+            android:scaleType="center"
+            android:src="@drawable/ic_eye"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="#777" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/forgot_password_link"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/jost_semibold"
+        android:gravity="end"
+        android:text="@string/forgotPassword_redirect_label"
+        android:textColor="#4669A4"
+        android:textColorLink="#4669A4"
+        android:textSize="14.5sp" />
+
+    <Button
+        android:id="@+id/signIn_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/semi_rounded_button_bg_2"
+        android:fontFamily="@font/jost_semibold"
+        android:text="@string/signIn_btn_text"
+        android:textColor="@color/white"
+        android:textColorLink="@color/white"
+        android:textSize="20sp"
+        app:backgroundTint="#466AA5"
+        app:rippleColor="#D89BA0A4" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/jost_medium"
+            android:gravity="center"
+            android:text="@string/signIn_to_signup_redirect_label"
+            android:textColor="#727A7C"
+            android:textSize="17sp" />
+        <TextView
+            android:id="@+id/to_signup_redirect_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="0dp"
+            android:fontFamily="@font/jost_semibold"
+            android:gravity="center"
+            android:text="@string/signIn_to_signup_redirect_link"
+            android:textColor="#466AA5"
+            android:textColorLink="#466AA5"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+</LinearLayout>

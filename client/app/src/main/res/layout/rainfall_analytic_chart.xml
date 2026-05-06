@@ -1,7 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:orientation="vertical"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="25dp"
+    android:layout_marginHorizontal="15dp"
+    android:layout_marginBottom="5dp"
+    android:background="@drawable/card_gradient_bg"
+    android:backgroundTint="#225864"
+    android:paddingHorizontal="5dp"
+    android:paddingVertical="10dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/jost_extrabold"
+        android:layout_marginTop="5dp"
+        android:paddingStart="12dp"
+        android:gravity="center_vertical"
+        android:paddingEnd="0dp"
+        android:text="@string/content_4_title"
+        android:textColor="#B8B7B7"
+        android:textSize="20sp" />
+
+    <!-- CHART -->
+    <HorizontalScrollView
+        android:id="@+id/chartWrapper2"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:layout_marginBottom="5dp"
+        android:background="@android:color/transparent"
+        android:fillViewport="true"
+        android:paddingStart="5dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="5dp"
+        android:paddingBottom="0dp"
+        android:contentDescription="@string/content_4_title">
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/areaChartForRainfall"
+            android:layout_width="600dp"
+            android:layout_height="250dp" />
+    </HorizontalScrollView>
 
 </LinearLayout>

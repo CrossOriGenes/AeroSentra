@@ -2,7 +2,7 @@ package com.example.aerosentra.models.response;
 
 import java.util.List;
 
-public class TriggerResponse {
+public class WeatherDataResponse {
 
     private boolean success;
     private String msg;
@@ -66,7 +66,7 @@ public class TriggerResponse {
         private double visibility;
         private boolean is_day;
         private Condition condition;
-        private AQI aqi;
+        private double aqi;
         private List<HourlyForecast> hourly_forecast;
         private List<DailyForecast> daily_forecast;
         private List<Alert> alerts;
@@ -122,8 +122,8 @@ public class TriggerResponse {
         public Condition getCondition() { return condition; }
         public void setCondition(Condition condition) { this.condition = condition; }
 
-        public AQI getAqi() { return aqi; }
-        public void setAqi(AQI aqi) { this.aqi = aqi; }
+        public double getAqi() { return aqi; }
+        public void setAqi(double aqi) { this.aqi = aqi; }
 
         public List<HourlyForecast> getHourly_forecast() { return hourly_forecast; }
         public void setHourly_forecast(List<HourlyForecast> hourly_forecast) { this.hourly_forecast = hourly_forecast; }
@@ -165,43 +165,6 @@ public class TriggerResponse {
         public void setCode(int code) { this.code = code; }
     }
 
-    // ---------------- AQI ----------------
-    public static class AQI {
-
-        private double pm2_5;
-        private double pm10;
-        private double co;
-        private double no2;
-        private double o3;
-        private double so2;
-        private int magnitude_of_5;
-        private int magnitude_of_10;
-
-        public double getPm2_5() { return pm2_5; }
-        public void setPm2_5(double pm2_5) { this.pm2_5 = pm2_5; }
-
-        public double getPm10() { return pm10; }
-        public void setPm10(double pm10) { this.pm10 = pm10; }
-
-        public double getCo() { return co; }
-        public void setCo(double co) { this.co = co; }
-
-        public double getNo2() { return no2; }
-        public void setNo2(double no2) { this.no2 = no2; }
-
-        public double getO3() { return o3; }
-        public void setO3(double o3) { this.o3 = o3; }
-
-        public double getSo2() { return so2; }
-        public void setSo2(double so2) { this.so2 = so2; }
-
-        public int getMagnitude_of_5() { return magnitude_of_5; }
-        public void setMagnitude_of_5(int magnitude_of_5) { this.magnitude_of_5 = magnitude_of_5; }
-
-        public int getMagnitude_of_10() { return magnitude_of_10; }
-        public void setMagnitude_of_10(int magnitude_of_10) { this.magnitude_of_10 = magnitude_of_10; }
-    }
-
     // ---------------- HOURLY FORECAST ----------------
     public static class HourlyForecast {
 
@@ -212,6 +175,7 @@ public class TriggerResponse {
         private int chance_of_rain;
         private boolean is_current;
         private double uv;
+        private double humidity;
 
         public String getTime() { return time; }
         public void setTime(String time) { this.time = time; }
@@ -233,6 +197,10 @@ public class TriggerResponse {
 
         public double getUv() { return uv; }
         public void setUv(double uv) { this.uv = uv; }
+
+        public double getHumidity() { return humidity; }
+        public void setHumidity(double humidity) { this.humidity = humidity; }
+
     }
 
     // ---------------- DAILY FORECAST ----------------
@@ -246,6 +214,7 @@ public class TriggerResponse {
         private String type;
         private double chance_of_rain;
         private double uv;
+        private double humidity;
 
         public String getDate() { return date; }
         public void setDate(String date) { this.date = date; }
@@ -270,6 +239,10 @@ public class TriggerResponse {
 
         public double getUv() { return uv; }
         public void setUv(double uv) { this.uv = uv; }
+
+        public double getHumidity() { return humidity; }
+        public void setHumidity(double humidity) { this.humidity = humidity; }
+
     }
 
     // ---------------- ALERT ----------------

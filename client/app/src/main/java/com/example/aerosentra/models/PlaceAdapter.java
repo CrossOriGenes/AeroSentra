@@ -37,7 +37,9 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ViewHolder> 
         String cityName = model.getCity();
         if (cityName.length() > 15) cityName = cityName.substring(0, 15) + "...";
         holder.city.setText(cityName);
-        holder.weatherType.setText(model.getType());
+        String description = model.getType();
+        if (description.length() > 25) description = description.substring(0, 25) + "...";
+        holder.weatherType.setText(description);
         String temperature = Math.round(model.getTemperature()) + "°";
         holder.temperature.setText(temperature);
         String iconUrl = "https:" + model.getIcon();

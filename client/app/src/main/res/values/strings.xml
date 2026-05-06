@@ -3,6 +3,7 @@
     <string name="app_name">AeroSentra</string>
     <string name="app_description">An IoT-driven Environmental Monitoring &amp; Weather-prediction system</string>
     <string name="loading_text_1">Loading…</string>
+    <string name="btn_back">&lt; Back</string>
     <string name="btn_next">Next &gt;</string>
     <string name="start_text">Get Started</string>
     <string name="btn_skip">Skip</string>
@@ -13,6 +14,9 @@
     <string name="cancel_txt">Cancel</string>
     <string name="list_empty_fallback_msg">No match found!</string>
     <string name="list_empty_fallback_description">Please enter some other keyword that matches the list.</string>
+    <string name="alert_title">Warning! ⚠️</string>
+    <string name="uvAlert_msg">High UV count! Avoid sun exposure and use sunscreen, additionally must carry an umbrella and glasses to protect the heat unless otherwise.</string>
+
 
     <!-- ACTIVITY -->
     <string name="nav_item_1">Home</string>
@@ -21,7 +25,7 @@
     <string name="nav_item_4">Settings</string>
     <string name="settings_activity_refetchBtn">Re-fetch Weather</string>
 
-    <!-- WEATHER PANEL -->
+    <!-- HOME/DETAILS FRAGMENT -->
     <string name="weather_today_title">Weather Today</string>
     <string name="weather_today_item_1">Maximum</string>
     <string name="weather_today_item_2">Minimum</string>
@@ -31,7 +35,11 @@
     <string name="weather_today_item_6">Pressure</string>
     <string name="weather_today_item_7">Humidity</string>
     <string name="weather_today_item_8">Wind Dir</string>
-    <string name="weather_today_item_9">AQI</string>
+    <string name="weather_today_item_9">Visibility</string>
+    <string name="weather_today_item_10">Next 3 hours</string>
+    <string name="weather_today_item_10_btnMore">More</string>
+    <string name="weather_today_item_11">UV Report Today</string>
+    <string name="weather_today_item_11_statLabel">Status:</string>
 
     <!-- HARDWARE INTERACTIONS -->
     <string name="trigger_req">Trigger Request</string>
@@ -60,17 +68,115 @@
     <string name="redirect_card3_subtext">Fatal disaster alerts &amp; news</string>
     <string name="redirect_card4_title">Preventions</string>
     <string name="redirect_card4_subtext">Climatic precautions &amp; updates</string>
-    <string name="redirect_card5_title">Newsletter</string>
-    <string name="redirect_card5_subtext">Enroll yourself to newsletter channel or subscribe for premium…</string>
+    <string name="redirect_card5_title">Subscribe</string>
+    <string name="redirect_card5_subtext">Avail premium features to receive personalized alerts &amp; reports…</string>
     <string name="redirect_card5_btnText">See More</string>
+    <string name="redirect_link_text_1">Manage Profile</string>
+    <string name="redirect_link_text_2">Logout</string>
+    <string name="account_unauthenticated_view_title">Verify yourself</string>
+    <string name="account_unauthenticated_view_description">You are currently signed out of your account. Please log in to continue.</string>
+    <string name="account_unauthenticated_view_btn">Continue to login/signup</string>
+
 
     <!-- MAP FRAGMENT -->
     <string name="activity_title">Weather Nearby</string>
     <string name="map_page_search_bar_hint">Search for a place…</string>
     <string name="place_details_label_1">Humidity:</string>
-    <string name="place_details_label_2">UV Index:</string>
+    <string name="place_details_label_2">Visibility:</string>
     <string name="place_details_label_3">Pressure:</string>
     <string name="place_details_label_4">Coordinates</string>
     <string name="place_details_label_5">Place image</string>
     <string name="place_details_btn_txt">Details</string>
+
+    <!-- ANALYTICS FRAGMENT -->
+    <string name="activity_title_analytics">Forecast &amp; Analytics</string>
+    <string name="content_1_title">Daily Forecast</string>
+    <string name="content_1_temperature_separator">-</string>
+    <string name="content_2_title">Forecast Today</string>
+    <string name="content_3_title">Temperature</string>
+    <string name="content_3_tab_label1">Week</string>
+    <string name="content_3_tab_label2">Hour</string>
+    <string name="content_4_title">Rainfall distribution today</string>
+    <string name="content_5_title">Humidity</string>
+    <string name="content_5_tab_label1">Week</string>
+    <string name="content_5_tab_label2">Hour</string>
+    <string name="content_6_title">Air Quality (AQI)</string>
+    <string name="content_6_legend_title">Index</string>
+    <string name="content_6_aqi_range_1">0 – 100</string>
+    <string name="content_6_aqi_range_2">200 – 300</string>
+    <string name="content_6_aqi_range_3">300 – 400</string>
+    <string name="content_6_aqi_range_4">400 – 500</string>
+    <string name="content_6_aqi_range_5">500+</string>
+
+    <!-- ALERT DETAILS ACTIVITY -->
+    <string name="alert_details_title">Alerts &amp; Precautions</string>
+    <string name="alert_details_label_1">Summary</string>
+    <string name="alert_details_label_2">Details</string>
+    <string name="alert_details_label_3">Precautions</string>
+    <string name="alert_details_label_4">Highlights</string>
+    <string name="alert_details_label_5">AQI and UV Today</string>
+    <string name="alert_details_not_found_title">Unable to get detailed report!</string>
+    <string name="alert_details_not_found_description">Please try again later or subscribe to an advanced plan for customized reports.</string>
+
+    <!-- SIGNUP ACTIVITY -->
+    <string name="signup_activity_title">Create account</string>
+    <string name="signup_hint_1">Your name</string>
+    <string name="signup_hint_2">Your email</string>
+    <string name="signup_hint_3">Create a password</string>
+    <string name="signup_btn_text">Signup</string>
+    <string name="signup_to_login_redirect_label">Already have an account?</string>
+    <string name="signup_to_login_redirect_link">Login</string>
+
+    <!-- LOGIN ACTIVITY -->
+    <string name="signIn_activity_title">Sign in</string>
+    <string name="signIn_hint_1">Your email</string>
+    <string name="signIn_hint_2">Your password</string>
+    <string name="signIn_btn_text">Log in</string>
+    <string name="signIn_to_signup_redirect_label">Don’t have an account?</string>
+    <string name="signIn_to_signup_redirect_link">Sign up</string>
+    <string name="forgotPassword_redirect_label">Forgot password?</string>
+
+    <!-- PROFILE -->
+    <string name="profile_activity_title">Your profile</string>
+    <string name="general_section">General</string>
+    <string name="edit_profile_picture">Change avatar</string>
+    <string name="edit_profile_name">Name</string>
+    <string name="edit_profile_email">Email</string>
+    <string name="security_section">Security</string>
+    <string name="change_password">Change password</string>
+    <string name="change_password_description">Change your password to a new combination to maintain security and better account enrichments.</string>
+    <string name="change_password_btn">Change</string>
+    <string name="remove_acc">Delete Profile</string>
+    <string name="remove_acc_description">This action involves permanent deletion of your profile and all associated data; which includes all current subscriptions and plans (if any). This action CANNOT be undone.</string>
+    <string name="remove_acc_btn">Delete account</string>
+    <string name="subscriptions_section">Plans</string>
+    <string name="subscriptions_card_label">$</string>
+    <string name="subscriptions_plan_label">Current subscription plan:</string>
+    <string name="subscription_plan_btn">Upgrade</string>
+    <string name="actions_btn_1">Save changes</string>
+    <string name="actions_btn_2">Logout</string>
+    <string name="image_picker_sheet_title">Choose a media to pick an image:</string>
+    <string name="image_picker_sheet_option_1">Gallery</string>
+    <string name="image_picker_sheet_option_2">Camera</string>
+
+    <!-- RESET PASSWORD -->
+    <string name="request_password_change_title">Confirm its you</string>
+    <string name="request_password_change_description">Please provide an email to send a password reset link. You can use it to reset your password in the next step.</string>
+    <string name="input_hint">Your email</string>
+    <string name="button_verify_text">Verify</string>
+    <string name="reset_password_title">Reset Password</string>
+    <string name="reset_password_description">Enter a new password for your account</string>
+    <string name="new_password_hint_1">New password</string>
+    <string name="new_password_hint_2">Re-type password</string>
+    <string name="button_save_text">Save new password</string>
+
+    <!-- SUBSCRIPTION -->
+    <string name="subscription_activity_title">Choose a Plan</string>
+    <string name="to_plans_redirect_text">You need to have a subscription plan to access this feature. Purchase an available plan to continue.</string>
+    <string name="to_plans_redirect_btn">See available plans</string>
+    <string name="plan_timing_tab_item_1">Monthly</string>
+    <string name="plan_timing_tab_item_2">Yearly</string>
+    <string name="plan_label_1">save</string>
+    <string name="cta_btn_text">Get plan</string>
+
 </resources>

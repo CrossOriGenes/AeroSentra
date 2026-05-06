@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!-- ERROR STATE -->
+    <item android:state_activated="true">
+        <shape>
+            <solid android:color="@color/white" />
+            <stroke
+                android:width="1.5dp"
+                android:color="#FF4D4D" />
+            <corners android:radius="12dp" />
+        </shape>
+    </item>
+
     <!-- FOCUSED STATE -->
     <item android:state_focused="true">
         <shape>
             <solid android:color="@color/white" />
             <stroke
-                android:width="2dp"
+                android:width="1.5dp"
                 android:color="#2D4948" />
             <corners android:radius="12dp" />
         </shape>
@@ -17,7 +28,7 @@
         <shape>
             <solid android:color="@color/white" />
             <stroke
-                android:width="2dp"
+                android:width="1.5dp"
                 android:color="#CCCCCC" />
             <corners android:radius="12dp" />
         </shape>

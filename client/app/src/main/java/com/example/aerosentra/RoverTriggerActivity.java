@@ -31,7 +31,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.aerosentra.api.APIClient;
 import com.example.aerosentra.api.RoverAPIService;
 import com.example.aerosentra.models.RoverStatus;
-import com.example.aerosentra.models.response.TriggerResponse;
+import com.example.aerosentra.models.response.WeatherDataResponse;
 import com.example.aerosentra.ui.PopupUtils;
 import com.example.aerosentra.ui.Toaster;
 import com.google.gson.Gson;
@@ -216,7 +216,7 @@ public class RoverTriggerActivity extends AppCompatActivity {
             };
             InetAddress inetAddress = InetAddress.getByAddress(bytes);
             String ip = inetAddress.getHostAddress();
-            Log.d("PHONE_IP", ip);
+            if (ip != null) Log.d("PHONE_IP", ip);
             return ip != null;
         } catch (Exception e) {
             Log.e("WIFI_CONNECTION_ERROR", e.toString());
@@ -227,13 +227,13 @@ public class RoverTriggerActivity extends AppCompatActivity {
     private void triggerRover()  {
         loader.showLoader(this, "Getting earth data...");
 
-        roverApi.triggerRover().enqueue(new Callback<TriggerResponse>() {
+        roverApi.triggerRover().enqueue(new Callback<WeatherDataResponse>() {
             @Override
-            public void onResponse(Call<TriggerResponse> call, Response<TriggerResponse> response) {
+            public void onResponse(Call<WeatherDataResponse> call, Response<WeatherDataResponse> response) {
                 loader.dismiss();
 
                 if (response.isSuccessful() && response.body()!=null) {
-                    TriggerResponse res = response.body();
+                    WeatherDataResponse res = response.body();
 
                     if (res.isSuccess()) {
                         Toaster.success(RoverTriggerActivity.this, res.getMsg());
@@ -242,9 +242,10 @@ public class RoverTriggerActivity extends AppCompatActivity {
                         String json = gson.toJson(res.getData());
 
                         SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
-                        SharedPreferences.Editor editor = prefs.edit();
-                        editor.putString("weather_data", json);
-                        editor.apply();
+                        prefs.edit()
+                                .putString("weather_data", json)
+                                .putLong("fetch_time", System.currentTimeMillis())
+                                .apply();
 
                         startActivity(new Intent(RoverTriggerActivity.this, MainActivity.class));
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
@@ -264,7 +265,7 @@ public class RoverTriggerActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<TriggerResponse> call, Throwable t) {
+            public void onFailure(Call<WeatherDataResponse> call, Throwable t) {
                 loader.dismiss();
                 Toaster.error(RoverTriggerActivity.this, "Network Error: "+t.getMessage());
             }

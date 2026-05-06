@@ -1,5 +1,7 @@
 package com.example.aerosentra.api;
 
+import androidx.annotation.NonNull;
+
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -14,8 +16,8 @@ public class APIClient {
     private static Retrofit serverRetrofit;
     private static Retrofit mdnsRetrofit;
 
-    private static final String SERVER_API_BASE_URL = "https://aerosentra.onrender.com/api/";
-//    private static final String SERVER_API_BASE_URL = "http://10.74.113.229:8000/api/";
+//    private static final String SERVER_API_BASE_URL = "https://aerosentra.onrender.com/api/";
+    private static final String SERVER_API_BASE_URL = "http://10.254.112.229:8000/api/";
     private static final String ROVER_BASE_URL = "http://10.74.113.164/";
 
     private static OkHttpClient getHttpClient() {
@@ -27,8 +29,9 @@ public class APIClient {
                 .writeTimeout(60, TimeUnit.SECONDS)
                 .addInterceptor(logging)
                 .addInterceptor(new Interceptor() {
+                    @NonNull
                     @Override
-                    public Response intercept(Chain chain) throws IOException {
+                    public Response intercept(@NonNull Chain chain) throws IOException {
                         try {
                             return chain.proceed(chain.request());
                         } catch (IllegalStateException e) {

@@ -1,0 +1,58 @@
+[
+  {
+    "planType": "Free",
+    "monthlyPrice": 0,
+    "yearlyPrice": 0,
+    "badge": 0,
+    "features": [
+      {"name": "Basic weather forecasts", "available": true},
+      {"name": "3-day predictions", "available": true},
+      {"name": "Limited AI accuracy", "available": true},
+      {"name": "Ad-supported experience", "available": true},
+      {"name": "Historical data access", "available": false},
+      {"name": "Severe weather alerts", "available": false}
+    ]
+  },
+  {
+    "planType": "Basic",
+    "monthlyPrice": 149,
+    "yearlyPrice": 1199,
+    "badge": 25,
+    "features": [
+      {"name": "7-day predictions", "available": true},
+      {"name": "Improved AI accuracy", "available": true},
+      {"name": "No ads", "available": true},
+      {"name": "Hourly forecasts", "available": true},
+      {"name": "Historical data access", "available": false},
+      {"name": "Severe weather alerts", "available": false}
+    ]
+  },
+  {
+    "planType": "Premium",
+    "monthlyPrice": 249,
+    "yearlyPrice": 1999,
+    "badge": 35,
+    "features": [
+      {"name": "14-day AI predictions", "available": true},
+      {"name": "High accuracy ML forecasts", "available": true},
+      {"name": "Real-time severe alerts", "available": true},
+      {"name": "Advanced weather maps", "available": true},
+      {"name": "Historical data access", "available": true},
+      {"name": "Offline access", "available": false}
+    ]
+  },
+  {
+    "planType": "Pro",
+    "monthlyPrice": 399,
+    "yearlyPrice": 2999,
+    "badge": 85,
+    "features": [
+      {"name": "30-day AI predictions", "available": true},
+      {"name": "Ultra-accurate ML engine", "available": true},
+      {"name": "Disaster prediction alerts", "available": true},
+      {"name": "Full historical datasets", "available": true},
+      {"name": "Offline access", "available": true},
+      {"name": "API access", "available": true}
+    ]
+  }
+]

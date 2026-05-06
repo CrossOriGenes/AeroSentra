@@ -15,14 +15,15 @@
 
     <TextView
         android:id="@+id/toastText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="-1dp"
+        android:layout_marginEnd="2dp"
         android:fontFamily="@font/jost_medium"
-        android:textStyle="normal"
+        android:lineSpacingExtra="-4dp"
         android:textColor="@color/white"
         android:textSize="18sp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginTop="-1dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:textStyle="normal" />
 
 </LinearLayout>

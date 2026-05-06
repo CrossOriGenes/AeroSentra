@@ -12,7 +12,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -33,7 +32,7 @@ import com.example.aerosentra.models.ImageAdapter;
 import com.example.aerosentra.models.PlaceAdapter;
 import com.example.aerosentra.models.PlaceAdapterModel;
 import com.example.aerosentra.models.response.NearbyPlacesResponse;
-import com.example.aerosentra.models.response.TriggerResponse;
+import com.example.aerosentra.models.response.WeatherDataResponse;
 import com.example.aerosentra.ui.PopupUtils;
 import com.example.aerosentra.ui.Toaster;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -45,10 +44,12 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 
 import org.json.JSONObject;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,13 +62,12 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     GoogleMap map;
     RecyclerView recyclerView, placeImagesView;
     LinearLayout placeDetailsContainer, bottomSheet;
-    TextView tvPlaceCity, tvPlaceRegion, tvPlaceTemp, tvPlaceHumidity, tvPlaceUV, tvPlacePressure, tvPlaceLatLng, tvPlaceWeatherType;
+    TextView tvPlaceCity, tvPlaceRegion, tvPlaceTemp, tvPlaceHumidity, tvPlaceVisibility, tvPlacePressure, tvPlaceLatLng, tvPlaceWeatherType;
     ImageView ivPlaceWeatherIcon, singleImageView;
-    LinearLayout goToPlaceDetailsPageBtn;
 
     SharedPreferences prefs;
     double userLat, userLon;
-    TriggerResponse.Data data;
+    WeatherDataResponse.Data data;
     WeatherAPIService api;
     PopupUtils loader;
     ArrayList<PlaceAdapterModel> placesList;
@@ -88,7 +88,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         String json = prefs.getString("weather_data", "");
         if (!json.isEmpty()) {
             Gson gson = new Gson();
-            data = gson.fromJson(json, TriggerResponse.Data.class);
+            data = gson.fromJson(json, WeatherDataResponse.Data.class);
         }
 
         api = APIClient.getServerClient().create(WeatherAPIService.class);
@@ -114,11 +114,10 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         tvPlaceTemp = view.findViewById(R.id.placeTemp);
         tvPlaceHumidity = view.findViewById(R.id.placeHumidity);
         tvPlacePressure = view.findViewById(R.id.placePressure);
-        tvPlaceUV = view.findViewById(R.id.placeUV);
+        tvPlaceVisibility = view.findViewById(R.id.placeVisibility);
         tvPlaceWeatherType = view.findViewById(R.id.placeWeaType);
         tvPlaceLatLng = view.findViewById(R.id.placeLatLng);
         ivPlaceWeatherIcon = view.findViewById(R.id.placeWeatherIcon);
-        goToPlaceDetailsPageBtn = view.findViewById(R.id.openDetailsBtn);
 
         placeDetailsContainer.setVisibility(View.GONE);
         placeImagesView.setLayoutManager(
@@ -128,13 +127,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                         false
                 )
         );
-
-        goToPlaceDetailsPageBtn.setOnClickListener(v -> {
-            if (selectedMarker != null) {
-                PlaceAdapterModel place = (PlaceAdapterModel) selectedMarker.getTag();
-                if (place != null) Toaster.info(getContext(), "Place: "+place.getCity());
-            }
-        });
 
 
         return view;
@@ -146,7 +138,16 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         LatLng current = new LatLng(userLat, userLon);
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(current, 15));
 
-        fetchNearbyPlaces();
+        String nearbyPlacesJson = prefs.getString("nearby_places", null);
+        if (nearbyPlacesJson != null) {
+            Gson gson = new Gson();
+            Type listType = new TypeToken<List<PlaceAdapterModel>>() {}.getType();
+            List<PlaceAdapterModel> list = gson.fromJson(nearbyPlacesJson, listType);
+            placesList.clear();
+            placesList.addAll(list);
+            adapter.notifyDataSetChanged();
+            addMarkersToMap(placesList);
+        } else fetchNearbyPlaces();
 
         map.setOnMarkerClickListener(marker -> {
            float density = getResources().getDisplayMetrics().density;
@@ -154,7 +155,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
            ViewGroup.LayoutParams params = bottomSheet.getLayoutParams();
            params.height = heightInPx;
            bottomSheet.setLayoutParams(params);
-           goToPlaceDetailsPageBtn.setVisibility(View.VISIBLE);
 
            PlaceAdapterModel place = (PlaceAdapterModel) marker.getTag();
 
@@ -272,6 +272,10 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                             placesList.addAll(list);
                             adapter.notifyDataSetChanged();
                             addMarkersToMap(placesList);
+
+                            Gson gson = new Gson();
+                            String nearbyPlacesJson = gson.toJson(placesList);
+                            prefs.edit().putString("nearby_places", nearbyPlacesJson).apply();
                         } else {
                             addFallbackMarker();
                             Toaster.warning(getContext(), "No nearby places found!");
@@ -332,8 +336,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             String region = data.getApi_data().getState() + ", " + data.getApi_data().getCountry();
             String weatherType = data.getApi_data().getCondition().getText();
             double temperature = data.getApi_data().getTemp();
-            double uv = data.getApi_data().getUv_index();
-            double humidity = data.getApi_data().getHumidity();
+            double visibility = data.getApi_data().getVisibility();
+            int humidity = (int) data.getApi_data().getHumidity();
             double pressure = data.getApi_data().getPressure();
             place = new PlaceAdapterModel(
                     iconUrl,
@@ -343,7 +347,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                     userLat,
                     userLon,
                     temperature,
-                    uv,
+                    visibility,
                     humidity,
                     pressure,
                     null
@@ -362,7 +366,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         String humidity = Math.round(place.getHumidity()) + "%";
         String region = place.getRegion();
         String weatherType = place.getType();
-        double uv = Math.round(place.getUv());
+        String visibility = place.getVisibility() + "Km";
         String pressure = Math.round(place.getPressure()) +"mb";
         String iconUrl = "https:" + place.getIcon();
         double lat = place.getLat();
@@ -375,7 +379,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         tvPlaceWeatherType.setText(weatherType);
         tvPlaceTemp.setText(temperature);
         tvPlaceHumidity.setText(humidity);
-        tvPlaceUV.setText(String.valueOf(uv));
+        tvPlaceVisibility.setText(visibility);
         tvPlacePressure.setText(pressure);
         tvPlaceLatLng.setText(valCoords);
         Glide.with(this).load(iconUrl).into(ivPlaceWeatherIcon);

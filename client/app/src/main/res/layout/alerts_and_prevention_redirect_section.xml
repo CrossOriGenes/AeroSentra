@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginBottom="100dp"
     android:columnCount="2"
     android:orientation="horizontal"
-    android:translationY="70dp"
-    android:layout_marginHorizontal="10dp"
-    android:layout_gravity="center"
-    android:layout_marginBottom="100dp">
+    android:translationY="70dp">
 
     <GridLayout
         android:layout_width="200dp"
@@ -17,6 +17,7 @@
         android:layout_marginEnd="10dp"
         android:orientation="vertical"
         android:rowCount="2">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/card_redirect_to_alerts"
             android:layout_width="match_parent"
@@ -27,31 +28,31 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="bottom|end"
                 android:background="@drawable/disaster_alerts_card_bg"
+                android:gravity="bottom|end"
+                android:orientation="vertical"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="5dp"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent">
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/jost_bold"
+                    android:gravity="end"
                     android:text="@string/redirect_card3_title"
                     android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:gravity="end" />
+                    android:textSize="20sp" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/jost_semibold"
+                    android:gravity="end"
                     android:text="@string/redirect_card3_subtext"
                     android:textColor="#AB5269"
-                    android:textSize="13sp"
-                    android:gravity="end" />
+                    android:textSize="13sp" />
             </LinearLayout>
             <ImageView
                 android:layout_width="25dp"
@@ -65,6 +66,26 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:tint="@color/white" />
+            <FrameLayout
+                android:id="@+id/subscriberBadge"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/rounded_pill"
+                android:backgroundTint="#FFCC00"
+                android:translationX="-5dp"
+                android:translationY="5dp"
+                app:layout_constraintEnd_toEndOf="@+id/card_redirect_to_alerts"
+                app:layout_constraintTop_toTopOf="@id/card_redirect_to_alerts">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/redirect_card3_title"
+                    android:scaleType="center"
+                    android:scaleX="0.82"
+                    android:scaleY="0.82"
+                    android:src="@drawable/ic_crown"
+                    app:tint="#333" />
+            </FrameLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -74,7 +95,6 @@
             android:layout_marginBottom="0dp"
             android:background="@drawable/card_gradient_bg"
             android:backgroundTint="@color/white">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -85,7 +105,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -95,7 +114,6 @@
                     android:text="@string/redirect_card5_title"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -106,7 +124,6 @@
                     android:textColor="#666"
                     android:textSize="12sp" />
             </LinearLayout>
-
             <Button
                 android:id="@+id/seeNewsltrAndSubsDetailsBtn"
                 android:layout_width="110dp"

@@ -1,6 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginBottom="20dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/jost_bold"
+        android:letterSpacing="0.22"
+        android:text="@string/security_section"
+        android:textAllCaps="true"
+        android:textColor="#AAAFAF"
+        android:textSize="21sp" />
+
+    <!-- CHANGE PASSWORD -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/semi_rounded_outline_btn"
+        android:orientation="vertical"
+        android:padding="12dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/jost_bold"
+            android:text="@string/change_password"
+            android:textColor="@color/black"
+            android:textSize="24.5sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/jost_medium"
+            android:lineSpacingExtra="-5dp"
+            android:text="@string/change_password_description"
+            android:textColor="#888"
+            android:textSize="15sp" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_changePassword"
+            android:layout_width="124dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/semi_rounded_button_bg"
+            android:fontFamily="@font/jost_semibold"
+            android:text="@string/change_password_btn"
+            android:textColor="@color/white"
+            android:textColorLink="@color/white"
+            android:textSize="17sp"
+            app:backgroundTint="#222" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/semi_rounded_outline_btn"
+        android:backgroundTint="#FFC1D8"
+        android:orientation="vertical"
+        android:padding="12dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/jost_bold"
+            android:text="@string/remove_acc"
+            android:textColor="#4B011C"
+            android:textSize="24.5sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/jost_medium"
+            android:lineSpacingExtra="-5.5dp"
+            android:text="@string/remove_acc_description"
+            android:textColor="#FF2F77"
+            android:textSize="15sp" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_deleteAccount"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/semi_rounded_button_bg"
+            android:fontFamily="@font/jost_semibold"
+            android:text="@string/remove_acc_btn"
+            android:textColor="@color/white"
+            android:textColorLink="@color/white"
+            android:textSize="17sp"
+            app:backgroundTint="#23010D" />
+    </LinearLayout>
+
+</LinearLayout>

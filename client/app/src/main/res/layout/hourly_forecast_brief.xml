@@ -1,7 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:orientation="vertical"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/forecast_next_3hrs"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="20dp"
+    android:background="@drawable/card_gradient_bg_dark"
+    android:orientation="vertical"
+    android:paddingHorizontal="5dp"
+    android:paddingTop="10dp"
+    android:translationY="-80dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:paddingEnd="15dp"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/jost_bold"
+            android:text="@string/weather_today_item_10"
+            android:textColor="#ccc"
+            android:textSize="20sp" />
+
+        <FrameLayout
+            android:id="@+id/seeFullHourlyForecastBtn"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_pill"
+            android:backgroundTint="#3E69B6"
+            android:gravity="center"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            android:elevation="5dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/jost_semibold"
+                android:gravity="center"
+                android:text="@string/weather_today_item_10_btnMore"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/hourlyForecastBriefList"
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginBottom="10dp"
+        android:overScrollMode="never"
+        android:paddingStart="10dp"
+        android:paddingEnd="5dp" />
 
 </LinearLayout>

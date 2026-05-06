@@ -1,7 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:orientation="vertical"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/jost_bold"
+        android:letterSpacing="0.22"
+        android:text="@string/general_section"
+        android:textAllCaps="true"
+        android:textColor="#AAAFAF"
+        android:textSize="21sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="6dp"
+            android:fontFamily="@font/jost_extrabold"
+            android:text="@string/edit_profile_name"
+            android:textColor="#888"
+            android:textSize="15.5sp" />
+        <EditText
+            android:id="@+id/username_edit_box"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:autofillHints="username"
+            android:background="@drawable/input_box_bg"
+            android:fontFamily="@font/jost_medium"
+            android:hint="@string/edit_profile_name"
+            android:inputType="text"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="#999"
+            android:textSize="19sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="6dp"
+            android:fontFamily="@font/jost_extrabold"
+            android:text="@string/edit_profile_email"
+            android:textColor="#888"
+            android:textSize="15.5sp" />
+        <EditText
+            android:id="@+id/user_email_edit_box"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:autofillHints="emailAddress"
+            android:background="@drawable/input_box_bg"
+            android:fontFamily="@font/jost_medium"
+            android:hint="@string/edit_profile_email"
+            android:inputType="textEmailAddress"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="#999"
+            android:textSize="19sp" />
+
+    </LinearLayout>
 
 </LinearLayout>

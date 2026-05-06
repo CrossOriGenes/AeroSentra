@@ -16,6 +16,10 @@
         <include layout="@layout/current_weather_card_2" />
         <!-- CURRENT-WEATHER CARD 3 -->
         <include layout="@layout/current_weather_card_3" />
+        <!-- BRIEF 3-HRS FORECAST -->
+        <include layout="@layout/hourly_forecast_brief" />
+        <!-- UV ANALYTICS RADIAL -->
+        <include layout="@layout/uv_analytic_section" />
 
     </LinearLayout>
 
