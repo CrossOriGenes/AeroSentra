@@ -11,7 +11,7 @@ from utils.helpers import FEATURES, categorize
 load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent
 SERVER_DIR = BASE_DIR.parent
-DATA_DIR = SERVER_DIR / "data"
+DATA_DIR = SERVER_DIR / "datasets"
 LOCAL_CSV_PATH = DATA_DIR / "weather_dataset.csv"
 
 

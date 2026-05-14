@@ -36,6 +36,14 @@ Designed as a modular, scalable system for real-time rover control, monitoring, 
 - Hardware communication layer
 - Scalable microservice-ready structure
 
+### **Installation (at "/AeroSentra/server")**
+```bash
+  python -m venv venv
+  venv\Scripts\activate
+  pip install -r requirements.txt
+  uvicorn app:app --host 0.0.0.0 --port 8000 --reload
+```
+
 ---
 
 ## **🤖 Hardware**
